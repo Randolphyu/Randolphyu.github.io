@@ -25,23 +25,23 @@
       background: var(--bg);
       color: var(--text);
       font-family: var(--mono);
-      font-size: 14px;
-      line-height: 1.75;
+      font-size: 15px;
+      line-height: 1.8;
     }
 
-    .container { max-width: 860px; margin: 0 auto; padding: 0 36px; }
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 72px; }
 
     /* Nav */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-      padding: 20px 0;
+      padding: 22px 0;
       border-bottom: 1px solid var(--border);
       background: rgba(245,244,240,0.92);
       backdrop-filter: blur(12px);
     }
     nav .container { display: flex; justify-content: space-between; align-items: center; }
     nav .logo {
-      font-family: var(--sans); font-weight: 700; font-size: 15px;
+      font-family: var(--sans); font-weight: 700; font-size: 16px;
       letter-spacing: -0.01em; color: var(--text); text-decoration: none;
     }
     nav ul { display: flex; gap: 32px; list-style: none; }
@@ -55,12 +55,12 @@
 
     /* Hero */
     #hero {
-      padding-top: 150px; padding-bottom: 90px;
+      padding-top: 180px; padding-bottom: 120px;
       border-bottom: 1px solid var(--border);
     }
     .hero-inner {
       display: grid;
-      grid-template-columns: 1fr 210px;
+      grid-template-columns: 1fr 260px;
       gap: 56px;
       align-items: center;
     }
@@ -75,19 +75,19 @@
 
     h1 {
       font-family: var(--sans); font-weight: 700;
-      font-size: clamp(42px, 7vw, 70px);
+      font-size: clamp(52px, 8vw, 96px);
       line-height: 1.0; letter-spacing: -0.03em;
       color: var(--text); margin-bottom: 6px;
     }
     .hero-pronunciation {
       font-family: var(--dmm);
-      font-size: 12px;
+      font-size: 13px;
       color: var(--muted);
-      margin-bottom: 26px;
+      margin-bottom: 30px;
       letter-spacing: 0.01em;
     }
     .hero-desc {
-      max-width: 460px; color: var(--text); font-size: 13.5px;
+      max-width: 520px; color: var(--text); font-size: 15px;
       line-height: 1.9; margin-bottom: 40px;
     }
     .hero-desc p { margin-bottom: 10px; }
@@ -96,7 +96,7 @@
     .hero-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
     .btn {
       display: inline-flex; align-items: center; gap: 8px;
-      padding: 12px 24px; font-family: var(--mono); font-size: 12px;
+      padding: 14px 28px; font-family: var(--mono); font-size: 13px;
       letter-spacing: 0.04em; text-decoration: none;
       border: 1px solid var(--border); color: var(--text);
       background: transparent; transition: all 0.2s;
@@ -117,7 +117,7 @@
 
     /* Photo */
     .hero-photo {
-      width: 210px; height: 210px;
+      width: 260px; height: 260px;
       position: relative;
     }
     .hero-photo img {
@@ -304,7 +304,7 @@
       <h2>Projects</h2>
       <div class="projects-list">
 
-        <a href="#" class="project-item">
+        <a href="projects/genbi.html" class="project-item">
           <span class="project-num">01</span>
           <div>
             <div class="project-title">GenBI — LLM Text-to-SQL Agent</div>
@@ -319,13 +319,13 @@
           <span class="project-arrow">↗</span>
         </a>
 
-        <a href="#" class="project-item">
+        <a href="projects/bi-infrastructure.html" class="project-item">
           <span class="project-num">02</span>
           <div>
             <div class="project-title">BI Infrastructure — Data Catalog &amp; 300-Dimension Dashboard</div>
             <div class="project-impact">50% faster search · 40 analyst hrs saved / mo</div>
             <div class="project-desc">
-              Led <strong>Tableau Server</strong> governance for <strong>200+ analysts</strong>, building an automated sitemap tool that cut report search time by <strong>50%</strong> and drove <strong>75%+ monthly adoption</strong>. Separately designed a <strong>300+ dimension</strong> customer profile dashboard — turning what was once a 40-hour-a-month manual task into self-serve analysis for PMs and business stakeholders.
+              Led <strong>Tableau Server</strong> governance for <strong>20+ analysts</strong>, building an automated sitemap tool that cut report search time by <strong>50%</strong> and drove <strong>75%+ monthly adoption</strong>. Separately designed a <strong>300+ dimension</strong> customer profile dashboard — turning what was once a 40-hour-a-month manual task into self-serve analysis for PMs and business stakeholders.
             </div>
             <div class="tags">
               <span class="tag">Tableau Server</span><span class="tag">Dimensional Modeling</span><span class="tag">ETL</span><span class="tag">BI Governance</span>
@@ -334,7 +334,7 @@
           <span class="project-arrow">↗</span>
         </a>
 
-        <a href="#" class="project-item">
+        <a href="projects/growth-analytics.html" class="project-item">
           <span class="project-num">03</span>
           <div>
             <div class="project-title">Growth Analytics — A/B Testing &amp; Marketing Optimization</div>
