@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GenBI — Yuhuan Yu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f4f0; --surface: #eeecea; --border: #ccc9c0;
+      --text: #1a1a18; --muted: #5e5c56;
+      --mono: 'IBM Plex Mono', monospace;
+      --sans: 'Playfair Display', serif;
+      --dmm: 'DM Mono', monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: var(--mono); font-size: 14px; line-height: 1.75; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      padding: 20px 36px; border-bottom: 1px solid var(--border);
+      background: rgba(245,244,240,0.92); backdrop-filter: blur(12px);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    nav .logo { font-family: var(--sans); font-weight: 700; font-size: 15px; color: var(--text); text-decoration: none; }
+    .nav-back { font-size: 11px; color: var(--muted); text-decoration: none; letter-spacing: 0.08em; display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
+    .nav-back:hover { color: var(--text); }
+
+    .article { max-width: 680px; margin: 0 auto; padding: 120px 36px 100px; }
+
+    /* Header */
+    .article-meta { font-size: 11px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; font-family: var(--dmm); display: flex; align-items: center; gap: 10px; }
+    .article-meta span { color: var(--border); }
+    h1 { font-family: var(--sans); font-size: clamp(32px, 5vw, 52px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; color: var(--text); margin-bottom: 20px; }
+    .article-sub { font-size: 16px; color: var(--muted); line-height: 1.7; margin-bottom: 36px; font-style: italic; font-family: var(--sans); }
+
+    /* Impact bar */
+    .impact-bar {
+      display: flex; gap: 0; border: 1px solid var(--border);
+      margin-bottom: 48px; background: var(--surface);
+    }
+    .impact-item { flex: 1; padding: 18px 20px; border-right: 1px solid var(--border); }
+    .impact-item:last-child { border-right: none; }
+    .impact-num { font-family: var(--sans); font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
+    .impact-label { font-size: 10px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 3px; }
+
+    /* Hero image */
+    .hero-img {
+      width: 100%; aspect-ratio: 16/9; background: var(--surface);
+      border: 1px solid var(--border); display: flex; align-items: center;
+      justify-content: center; margin-bottom: 48px;
+    }
+    .hero-img .placeholder { font-size: 11px; color: var(--border); letter-spacing: 0.12em; text-transform: uppercase; font-family: var(--dmm); }
+
+    /* Body */
+    .article-body { font-size: 15px; color: var(--text); line-height: 1.9; }
+    .article-body h2 { font-family: var(--sans); font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin: 48px 0 16px; color: var(--text); }
+    .article-body p { margin-bottom: 20px; }
+    .article-body p:last-child { margin-bottom: 0; }
+    .article-body strong { font-weight: 500; }
+    .article-body em { font-style: italic; color: var(--muted); }
+
+    /* Inline image */
+    .inline-img {
+      width: 100%; aspect-ratio: 16/9; background: var(--surface);
+      border: 1px solid var(--border); display: flex; align-items: center;
+      justify-content: center; margin: 32px 0;
+    }
+    .inline-img .placeholder { font-size: 11px; color: var(--border); letter-spacing: 0.12em; text-transform: uppercase; font-family: var(--dmm); text-align: center; line-height: 1.8; }
+
+    /* Tags */
+    .article-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); }
+    .tag { font-size: 10px; padding: 4px 10px; border: 1px solid var(--border); color: var(--muted); letter-spacing: 0.05em; }
+
+    /* Back link */
+    .back-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 48px; font-size: 12px; color: var(--muted); text-decoration: none; letter-spacing: 0.06em; transition: color 0.2s; border-top: 1px solid var(--border); padding-top: 32px; width: 100%; }
+    .back-link:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="../index.html" class="logo">Yuhuan Yu</a>
+    <a href="../projects.html" class="nav-back">← All Projects</a>
+  </nav>
+
+  <article class="article">
+    <div class="article-meta">LLM <span>·</span> Bank SinoPac <span>·</span> 2025</div>
+    <h1>GenBI — LLM-Powered Text-to-SQL Agent</h1>
+    <p class="article-sub">What if anyone in the company could query 10 million transaction records just by asking a question in plain English?</p>
+
+    <div class="impact-bar">
+      <div class="impact-item">
+        <div class="impact-num">30→70%</div>
+        <div class="impact-label">Query Accuracy</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-num">10M+</div>
+        <div class="impact-label">Records Queried</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-num">Early 2025</div>
+        <div class="impact-label">Shipped</div>
+      </div>
+    </div>
+
+    <div class="hero-img">
+      <div class="placeholder">Architecture Diagram / Screenshot</div>
+    </div>
+
+    <div class="article-body">
+      <h2>The Problem</h2>
+      <p>At Bank SinoPac, business teams needed data — but getting it meant filing a request, waiting for an analyst, and hoping the output matched what they actually wanted. The SQL bottleneck was real: <strong>non-technical stakeholders couldn't self-serve</strong>, and analysts spent a disproportionate amount of time on ad-hoc queries instead of higher-leverage work.</p>
+      <p>The question I set out to answer: could an LLM reliably translate natural language into accurate SQL — not in a demo, but in a production banking environment with real schema complexity?</p>
+
+      <h2>The Approach</h2>
+      <p>I architected <strong>GenBI</strong> using a RAG (Retrieval-Augmented Generation) pipeline on top of LangGraph. The core idea was to give the model the right context at query time — not by stuffing the entire schema into the prompt, but by retrieving only the relevant table and column definitions using a <strong>vector database</strong>.</p>
+
+      <div class="inline-img">
+        <div class="placeholder">RAG Pipeline Diagram<br>coming soon</div>
+      </div>
+
+      <p>Two techniques drove the accuracy improvement from 30% to 70%:</p>
+      <p><strong>Chain-of-thought prompting</strong> — rather than asking the model to produce SQL directly, I prompted it to reason through the query step-by-step: identify the relevant tables, understand the join conditions, then write the SQL. This dramatically reduced hallucinated column names and incorrect aggregations.</p>
+      <p><strong>Persona engineering</strong> — the model was given an explicit role as a "senior data analyst at a Taiwanese bank" with specific instructions about naming conventions, business logic, and common query patterns. This grounded its outputs in the actual domain context.</p>
+
+      <h2>Results</h2>
+      <p>Query accuracy went from <strong>30% to 70%</strong> — meaning 7 in 10 natural language questions produced correct, runnable SQL on the first attempt. Non-technical users could now interrogate transaction data directly, reducing analyst queue depth and enabling faster business decisions.</p>
+      <p>This was one of the first internal LLM deployments at the bank, shipped in early 2025.</p>
+
+      <h2>What I'd Do Differently</h2>
+      <p><em>The remaining 30% gap is largely schema ambiguity — cases where two columns could plausibly answer the question. A feedback loop that captures user corrections and fine-tunes retrieval ranking would be the next meaningful lever.</em></p>
+    </div>
+
+    <div class="article-tags">
+      <span class="tag">LangGraph</span><span class="tag">RAG</span><span class="tag">LLM</span>
+      <span class="tag">Vector DB</span><span class="tag">Text-to-SQL</span><span class="tag">Python</span>
+      <span class="tag">Chain-of-Thought</span><span class="tag">Prompt Engineering</span>
+    </div>
+
+    <a href="../projects.html" class="back-link">← Back to all projects</a>
+  </article>
+</body>
+</html>

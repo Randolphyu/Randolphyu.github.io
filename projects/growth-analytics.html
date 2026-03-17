@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Growth Analytics — Yuhuan Yu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #f5f4f0; --surface: #eeecea; --border: #ccc9c0; --text: #1a1a18; --muted: #5e5c56; --mono: 'IBM Plex Mono', monospace; --sans: 'Playfair Display', serif; --dmm: 'DM Mono', monospace; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: var(--mono); font-size: 14px; line-height: 1.75; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; padding: 20px 36px; border-bottom: 1px solid var(--border); background: rgba(245,244,240,0.92); backdrop-filter: blur(12px); display: flex; justify-content: space-between; align-items: center; }
+    nav .logo { font-family: var(--sans); font-weight: 700; font-size: 15px; color: var(--text); text-decoration: none; }
+    .nav-back { font-size: 11px; color: var(--muted); text-decoration: none; letter-spacing: 0.08em; transition: color 0.2s; }
+    .nav-back:hover { color: var(--text); }
+    .article { max-width: 680px; margin: 0 auto; padding: 120px 36px 100px; }
+    .article-meta { font-size: 11px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; font-family: var(--dmm); display: flex; align-items: center; gap: 10px; }
+    .article-meta span { color: var(--border); }
+    h1 { font-family: var(--sans); font-size: clamp(32px, 5vw, 52px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; color: var(--text); margin-bottom: 20px; }
+    .article-sub { font-size: 16px; color: var(--muted); line-height: 1.7; margin-bottom: 36px; font-style: italic; font-family: var(--sans); }
+    .impact-bar { display: flex; border: 1px solid var(--border); margin-bottom: 48px; background: var(--surface); }
+    .impact-item { flex: 1; padding: 18px 20px; border-right: 1px solid var(--border); }
+    .impact-item:last-child { border-right: none; }
+    .impact-num { font-family: var(--sans); font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
+    .impact-label { font-size: 10px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 3px; }
+    .hero-img { width: 100%; aspect-ratio: 16/9; background: var(--surface); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; margin-bottom: 48px; }
+    .hero-img .placeholder { font-size: 11px; color: var(--border); letter-spacing: 0.12em; text-transform: uppercase; font-family: var(--dmm); }
+    .article-body { font-size: 15px; line-height: 1.9; }
+    .article-body h2 { font-family: var(--sans); font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin: 48px 0 16px; }
+    .article-body p { margin-bottom: 20px; }
+    .article-body strong { font-weight: 500; }
+    .article-body em { font-style: italic; color: var(--muted); }
+    .article-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); }
+    .tag { font-size: 10px; padding: 4px 10px; border: 1px solid var(--border); color: var(--muted); letter-spacing: 0.05em; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 48px; font-size: 12px; color: var(--muted); text-decoration: none; letter-spacing: 0.06em; transition: color 0.2s; border-top: 1px solid var(--border); padding-top: 32px; width: 100%; }
+    .back-link:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="../index.html" class="logo">Yuhuan Yu</a>
+    <a href="../projects.html" class="nav-back">← All Projects</a>
+  </nav>
+  <article class="article">
+    <div class="article-meta">Analytics & ML <span>·</span> Bank SinoPac · Gamania <span>·</span> 2022–2025</div>
+    <h1>Growth Analytics — A/B Testing & Marketing Optimization</h1>
+    <p class="article-sub">Rigorous experimentation across two industries, 500K+ users, and numbers that actually moved.</p>
+
+    <div class="impact-bar">
+      <div class="impact-item"><div class="impact-num">90%</div><div class="impact-label">CTR Lift</div></div>
+      <div class="impact-item"><div class="impact-num">+50%</div><div class="impact-label">Conversion Rate</div></div>
+      <div class="impact-item"><div class="impact-num">+30%</div><div class="impact-label">YoY FX Growth</div></div>
+      <div class="impact-item"><div class="impact-num">500K+</div><div class="impact-label">Users Tested</div></div>
+    </div>
+
+    <div class="hero-img"><div class="placeholder">Experiment Results / Funnel Diagram</div></div>
+
+    <div class="article-body">
+      <h2>Push Notification CTR — 90% Lift (Gamania)</h2>
+      <p>At Gamania, marketing push notifications were underperforming. Rather than guessing at the cause, I designed a <strong>multivariate A/B testing framework</strong> using stratified sampling across 500K+ users — testing message copy, send timing, and segmentation criteria simultaneously.</p>
+      <p>Statistical analysis using <strong>chi-square and t-tests</strong> identified the winning combination. CTR increased by <strong>90%</strong>. More importantly, the framework itself became reusable infrastructure for future campaigns.</p>
+
+      <h2>Installment Conversion — 50% Lift (Bank SinoPac)</h2>
+      <p>Weekly installment conversion was a priority metric for the digital banking product team. I ran <strong>funnel analysis</strong> to identify where users were dropping off — and found a clear drop-off window 2–3 days after initial product exposure.</p>
+      <p>Targeted push notifications sent within that window, personalized by transaction history, boosted conversion by <strong>50%</strong>. The insight was in the timing, not just the message.</p>
+
+      <h2>FX Transaction Growth — 30% YoY (Bank SinoPac)</h2>
+      <p>Using <strong>RFM segmentation</strong> (Recency, Frequency, Monetary) and association rule analysis on asset and transaction data, I identified customer segments most likely to respond to FX product recommendations and the bundled product combinations most likely to convert.</p>
+      <p>The segmentation model fed personalized product recommendation campaigns that drove <strong>30% year-over-year FX transaction growth</strong>.</p>
+
+      <h2>On Experimentation in Practice</h2>
+      <p><em>The hardest part of A/B testing isn't the statistics — it's getting stakeholders to wait for significance before shipping. Building trust in the process, and communicating results clearly to non-technical PMs, was as important as the analysis itself.</em></p>
+    </div>
+
+    <div class="article-tags">
+      <span class="tag">A/B Testing</span><span class="tag">RFM Modeling</span><span class="tag">Funnel Analysis</span>
+      <span class="tag">BigQuery</span><span class="tag">SQL</span><span class="tag">Python</span>
+      <span class="tag">Hypothesis Testing</span><span class="tag">Segmentation</span>
+    </div>
+    <a href="../projects.html" class="back-link">← Back to all projects</a>
+  </article>
+</body>
+</html>
