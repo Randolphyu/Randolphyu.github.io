@@ -251,13 +251,14 @@
 
     @media (max-width: 640px) {
       .container { padding: 0 24px; }
-      .hero-inner { grid-template-columns: 1fr; gap: 32px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 32px; display: flex; flex-direction: column; align-items: center; text-align: left; }
       .hero-photo {
         width: 200px; height: 200px;
-        margin: 0 auto 0;
-        margin-left: 0 !important;
+        margin: 0 auto !important;
         order: -1;
+        flex-shrink: 0;
       }
+      .hero-inner > div:last-of-type { width: 100%; }
       #hero { padding-top: 110px; padding-bottom: 64px; }
       h1 { font-size: clamp(40px, 12vw, 60px); }
       .hero-desc { font-size: 14px; max-width: 100%; }
@@ -270,6 +271,7 @@
       .project-arrow { display: none; }
       .stack-grid { grid-template-columns: 1fr 1fr; }
       section { padding: 72px 0; }
+      .label { margin-left: 0; padding-left: 0; }
     }
   </style>
 </head>
