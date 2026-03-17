@@ -253,10 +253,17 @@
       .container { padding: 0 24px; }
       .hero-inner { grid-template-columns: 1fr; gap: 32px; display: flex; flex-direction: column; align-items: center; text-align: left; }
       .hero-photo {
-        width: 200px; height: 200px;
+        width: 200px !important; height: 200px !important;
+        min-width: 200px; min-height: 200px;
+        max-width: 200px; max-height: 200px;
         margin: 0 auto !important;
         order: -1;
         flex-shrink: 0;
+        align-self: center;
+      }
+      .hero-photo img {
+        width: 200px !important; height: 200px !important;
+        border-radius: 50% !important;
       }
       .hero-inner > div:last-of-type { width: 100%; }
       #hero { padding-top: 110px; padding-bottom: 64px; }
