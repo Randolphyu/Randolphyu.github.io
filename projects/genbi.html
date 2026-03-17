@@ -15,6 +15,7 @@
       --dmm: 'DM Mono', monospace;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body { background: var(--bg); color: var(--text); font-family: var(--mono); font-size: 14px; line-height: 1.75; }
 
     nav {
@@ -27,55 +28,105 @@
     .nav-back { font-size: 11px; color: var(--muted); text-decoration: none; letter-spacing: 0.08em; display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
     .nav-back:hover { color: var(--text); }
 
-    .article { max-width: 680px; margin: 0 auto; padding: 120px 36px 100px; }
+    .article { max-width: 720px; margin: 0 auto; padding: 120px 36px 100px; }
 
-    /* Header */
     .article-meta { font-size: 11px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; font-family: var(--dmm); display: flex; align-items: center; gap: 10px; }
     .article-meta span { color: var(--border); }
+
     h1 { font-family: var(--sans); font-size: clamp(32px, 5vw, 52px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; color: var(--text); margin-bottom: 20px; }
     .article-sub { font-size: 16px; color: var(--muted); line-height: 1.7; margin-bottom: 36px; font-style: italic; font-family: var(--sans); }
 
-    /* Impact bar */
-    .impact-bar {
-      display: flex; gap: 0; border: 1px solid var(--border);
-      margin-bottom: 48px; background: var(--surface);
-    }
+    .impact-bar { display: flex; border: 1px solid var(--border); margin-bottom: 48px; background: var(--surface); }
     .impact-item { flex: 1; padding: 18px 20px; border-right: 1px solid var(--border); }
     .impact-item:last-child { border-right: none; }
     .impact-num { font-family: var(--sans); font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
     .impact-label { font-size: 10px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 3px; }
 
-    /* Hero image */
-    .hero-img {
-      width: 100%; aspect-ratio: 16/9; background: var(--surface);
-      border: 1px solid var(--border); display: flex; align-items: center;
-      justify-content: center; margin-bottom: 48px;
-    }
-    .hero-img .placeholder { font-size: 11px; color: var(--border); letter-spacing: 0.12em; text-transform: uppercase; font-family: var(--dmm); }
-
-    /* Body */
     .article-body { font-size: 15px; color: var(--text); line-height: 1.9; }
-    .article-body h2 { font-family: var(--sans); font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin: 48px 0 16px; color: var(--text); }
+    .article-body h2 { font-family: var(--sans); font-size: 24px; font-weight: 700; letter-spacing: -0.02em; margin: 52px 0 16px; color: var(--text); }
     .article-body p { margin-bottom: 20px; }
     .article-body p:last-child { margin-bottom: 0; }
     .article-body strong { font-weight: 500; }
     .article-body em { font-style: italic; color: var(--muted); }
 
-    /* Inline image */
-    .inline-img {
-      width: 100%; aspect-ratio: 16/9; background: var(--surface);
-      border: 1px solid var(--border); display: flex; align-items: center;
-      justify-content: center; margin: 32px 0;
+    /* Architecture diagram embed */
+    .diagram-wrap {
+      margin: 36px 0;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      padding: 28px;
+      border-radius: 2px;
     }
-    .inline-img .placeholder { font-size: 11px; color: var(--border); letter-spacing: 0.12em; text-transform: uppercase; font-family: var(--dmm); text-align: center; line-height: 1.8; }
+    .diagram-label {
+      font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 16px; font-family: var(--dmm);
+    }
 
-    /* Tags */
-    .article-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); }
-    .tag { font-size: 10px; padding: 4px 10px; border: 1px solid var(--border); color: var(--muted); letter-spacing: 0.05em; }
+    /* Demo mockup embed */
+    .demo-wrap {
+      margin: 36px 0;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .demo-label {
+      font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--muted); padding: 12px 16px; border-bottom: 1px solid var(--border);
+      background: var(--surface); font-family: var(--dmm);
+    }
 
-    /* Back link */
-    .back-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 48px; font-size: 12px; color: var(--muted); text-decoration: none; letter-spacing: 0.06em; transition: color 0.2s; border-top: 1px solid var(--border); padding-top: 32px; width: 100%; }
-    .back-link:hover { color: var(--text); }
+    /* Streamlit mockup */
+    .app { display:grid; grid-template-columns:1fr 1fr; gap:0; font-size:13px; background:#0e1117; }
+    .topbar { grid-column:1/-1; background:#262730; padding:8px 16px; display:flex; align-items:center; gap:10px; }
+    .topbar-dot { width:10px;height:10px;border-radius:50%; }
+    .topbar-title { color:#fafafa; font-size:12px; letter-spacing:0.04em; margin-left:4px; font-family:var(--dmm); }
+    .left-col { background:#0e1117; padding:20px 24px; border-right:1px solid #1a1a2e; display:flex; flex-direction:column; gap:14px; }
+    .right-col { background:#0e1117; padding:20px 24px; display:flex; flex-direction:column; gap:14px; }
+    .col-header { color:#fafafa; font-size:15px; font-weight:500; margin-bottom:2px; }
+    .input-label { color:#9ea3b0; font-size:11px; margin-bottom:5px; }
+    .input-box { background:#262730; border:1px solid #3a3a4a; border-radius:4px; padding:10px 12px; color:#fafafa; font-size:12px; width:100%; min-height:60px; font-family:var(--mono); line-height:1.5; }
+    .submit-btn { background:#ff4b4b; color:#fff; border:none; border-radius:4px; padding:8px 20px; font-size:13px; cursor:default; align-self:flex-start; }
+    .answer-block { background:#1a1a2e; border-left:3px solid #ff4b4b; border-radius:0 4px 4px 0; padding:12px 14px; }
+    .section-label { color:#ff4b4b; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:6px; }
+    .answer-text { color:#d0d0e0; font-size:12px; line-height:1.75; }
+    .sql-block { background:#161625; border:1px solid #2a2a3a; border-radius:4px; padding:10px 12px; }
+    .sql-label { color:#4a4a6a; font-size:10px; letter-spacing:0.1em; margin-bottom:6px; }
+    .sql-code { color:#7ec8e3; font-size:11px; font-family:var(--dmm); line-height:1.65; }
+    .kw { color:#c792ea; } .tbl { color:#f9d57a; } .col { color:#aed6a0; }
+    .feedback-row { display:flex; align-items:center; gap:10px; }
+    .fb-label { color:#4a4a6a; font-size:11px; }
+    .fb-btn { background:none; border:1px solid #3a3a4a; color:#9ea3b0; padding:3px 10px; border-radius:4px; font-size:12px; cursor:default; }
+    .stat-row { display:flex; gap:10px; }
+    .stat-card { flex:1; background:#161625; border-radius:6px; padding:10px 12px; }
+    .stat-num { color:#fafafa; font-size:18px; font-weight:500; }
+    .stat-label { color:#4a4a6a; font-size:10px; margin-top:2px; }
+    .stat-sub { color:#9ea3b0; font-size:10px; margin-top:1px; }
+    .chart-area { background:#161625; border-radius:6px; padding:14px 16px 10px; }
+    .chart-title { color:#9ea3b0; font-size:11px; margin-bottom:10px; }
+    .legend { display:flex; gap:14px; margin-bottom:12px; }
+    .legend-item { display:flex; align-items:center; gap:5px; font-size:11px; color:#9ea3b0; }
+    .legend-dot { width:10px;height:10px;border-radius:2px; }
+    .bar-row { display:flex; align-items:center; gap:8px; margin-bottom:7px; }
+    .bar-label { color:#9ea3b0; font-size:10px; width:54px; text-align:right; flex-shrink:0; }
+    .bar-track { flex:1; height:16px; background:#1e1e2e; border-radius:2px; overflow:hidden; display:flex; gap:1px; }
+    .bar-d { background:#ff4b4b; height:100%; } .bar-n { background:#3b8bd4; height:100%; }
+    .bar-val { color:#6a6a8a; font-size:10px; width:80px; flex-shrink:0; }
+    .insight-box { background:#1a1a2e; border-radius:6px; padding:12px 14px; }
+    .insight-label { color:#ffd700; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px; }
+    .insight-item { color:#d0d0e0; font-size:11px; line-height:1.7; padding-left:12px; position:relative; margin-bottom:3px; }
+    .insight-item::before { content:"·"; position:absolute; left:0; color:#ff4b4b; }
+
+    .article-tags { display:flex; gap:6px; flex-wrap:wrap; margin-top:48px; padding-top:32px; border-top:1px solid var(--border); }
+    .tag { font-size:10px; padding:4px 10px; border:1px solid var(--border); color:var(--muted); letter-spacing:0.05em; }
+    .back-link { display:inline-flex; align-items:center; gap:8px; margin-top:32px; font-size:12px; color:var(--muted); text-decoration:none; letter-spacing:0.06em; transition:color 0.2s; border-top:1px solid var(--border); padding-top:32px; width:100%; }
+    .back-link:hover { color:var(--text); }
+
+    @media (max-width:640px) {
+      .app { grid-template-columns:1fr; }
+      .impact-bar { flex-direction:column; }
+      .impact-item { border-right:none; border-bottom:1px solid var(--border); }
+      .impact-item:last-child { border-bottom:none; }
+    }
   </style>
 </head>
 <body>
@@ -85,17 +136,17 @@
   </nav>
 
   <article class="article">
-    <div class="article-meta">LLM <span>·</span> Bank SinoPac <span>·</span> 2025</div>
+    <div class="article-meta">AI & LLM <span>·</span> Bank SinoPac <span>·</span> 2025</div>
     <h1>GenBI — LLM-Powered Text-to-SQL Agent</h1>
-    <p class="article-sub">What if anyone in the company could query 10 million transaction records just by asking a question in plain English?</p>
+    <p class="article-sub">What if anyone at the bank could query millions of customer records just by asking a question in natural language?</p>
 
     <div class="impact-bar">
       <div class="impact-item">
-        <div class="impact-num">30→70%</div>
+        <div class="impact-num">30% → 70%</div>
         <div class="impact-label">Query Accuracy</div>
       </div>
       <div class="impact-item">
-        <div class="impact-num">10M+</div>
+        <div class="impact-num">6M+</div>
         <div class="impact-label">Records Queried</div>
       </div>
       <div class="impact-item">
@@ -104,38 +155,254 @@
       </div>
     </div>
 
-    <div class="hero-img">
-      <div class="placeholder">Architecture Diagram / Screenshot</div>
+    <div class="article-body">
+
+      <h2>The Problem</h2>
+      <p>Business teams at Bank SinoPac needed data, but getting it meant going through analysts. Every ad-hoc question created a queue. Analysts spent a disproportionate amount of time on repetitive queries instead of higher-leverage work. The SQL bottleneck was real — and it was slowing down decisions.</p>
+      <p>The question I set out to answer: could an LLM reliably translate business questions into accurate SQL — not in a demo, but in a production banking environment with real schema complexity and financial data that couldn't afford to be wrong?</p>
+
+      <h2>Architecture</h2>
+      <p>I designed GenBI around a multi-stage pipeline. At the front end, a <strong>Streamlit chatbot interface</strong> collected user questions and routed them based on intent. The core engine used an LLM to generate SQL, which was executed directly against MSSQL. Results were returned as both <strong>structured data tables and auto-generated charts</strong> (bar, line, scatter), alongside a plain-language summary.</p>
+      <p>To ensure the model had the right context without stuffing the entire schema into every prompt, I had junior analysts and interns curate <strong>five years of customer segment insights</strong> and MSSQL pipeline syntax — a knowledge base that the agent could draw from before generating a response. The plan was to formalize this into a vector database (RAG layer), though I left the company before that phase was completed.</p>
+      <p>A <strong>feedback loop</strong> was built into the UI from the start: every user query and its output were logged to a database, along with thumbs-up / thumbs-down signals. This feedback was fed back into the agent's context — teaching it which query patterns worked, which failed, and which business logic assumptions were wrong.</p>
+
+    </div>
+
+    <!-- Architecture Diagram -->
+    <div class="diagram-wrap">
+      <div class="diagram-label">System Architecture</div>
+      <svg width="100%" viewBox="0 0 680 668" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <style>
+          .t { font-family:'IBM Plex Mono',monospace; font-size:14px; fill:#1a1a18; }
+          .ts { font-family:'IBM Plex Mono',monospace; font-size:12px; fill:#5e5c56; }
+          .th { font-family:'IBM Plex Mono',monospace; font-size:14px; font-weight:500; fill:#1a1a18; }
+          .arr { stroke:#1a1a18; stroke-width:1; fill:none; }
+          .planned { font-family:'IBM Plex Mono',monospace; font-size:10px; fill:#aaa; }
+          .impl { font-family:'IBM Plex Mono',monospace; font-size:10px; fill:#888; }
+          /* node colors */
+          .n-gray rect { fill:#eeecea; stroke:#ccc9c0; }
+          .n-gray text { fill:#1a1a18; }
+          .n-purple rect { fill:#EEEDFE; stroke:#AFA9EC; }
+          .n-purple .th { fill:#3C3489; }
+          .n-purple .ts { fill:#534AB7; }
+          .n-teal rect { fill:#E1F5EE; stroke:#5DCAA5; }
+          .n-teal .th { fill:#085041; }
+          .n-teal .ts { fill:#0F6E56; }
+          .n-coral rect { fill:#FAECE7; stroke:#F0997B; }
+          .n-coral .th { fill:#712B13; }
+          .n-coral .ts { fill:#993C1D; }
+          .n-amber rect { fill:#FAEEDA; stroke:#EF9F27; }
+          .n-amber .th { fill:#633806; }
+          .n-amber .ts { fill:#854F0B; }
+        </style>
+
+        <!-- User input -->
+        <g class="n-gray">
+          <rect x="220" y="20" width="240" height="44" rx="8" stroke-width="0.5"/>
+          <text class="th" x="340" y="42" text-anchor="middle" dominant-baseline="central">User question (chatbot UI)</text>
+        </g>
+        <line x1="340" y1="64" x2="340" y2="100" class="arr" marker-end="url(#arrow)"/>
+
+        <!-- Intent router -->
+        <g class="n-purple">
+          <rect x="210" y="100" width="260" height="56" rx="8" stroke-width="0.5"/>
+          <text class="th" x="340" y="120" text-anchor="middle" dominant-baseline="central">Intent router</text>
+          <text class="ts" x="340" y="140" text-anchor="middle" dominant-baseline="central">Classify &amp; route question type</text>
+        </g>
+        <line x1="340" y1="156" x2="340" y2="192" class="arr" marker-end="url(#arrow)"/>
+
+        <!-- Context retrieval row -->
+        <g class="n-teal">
+          <rect x="18" y="192" width="194" height="60" rx="8" stroke-width="0.5"/>
+          <text class="th" x="115" y="212" text-anchor="middle" dominant-baseline="central">Business logic</text>
+          <text class="ts" x="115" y="232" text-anchor="middle" dominant-baseline="central">Analyst-curated insights</text>
+        </g>
+        <text class="planned" x="115" y="258" text-anchor="middle">[Planned: vector DB]</text>
+
+        <g class="n-teal">
+          <rect x="243" y="192" width="194" height="60" rx="8" stroke-width="0.5"/>
+          <text class="th" x="340" y="212" text-anchor="middle" dominant-baseline="central">Schema context</text>
+          <text class="ts" x="340" y="232" text-anchor="middle" dominant-baseline="central">Columns + pipeline syntax</text>
+        </g>
+        <text class="planned" x="340" y="258" text-anchor="middle">[Planned: vector DB]</text>
+
+        <g class="n-teal">
+          <rect x="468" y="192" width="194" height="60" rx="8" stroke-width="0.5"/>
+          <text class="th" x="565" y="212" text-anchor="middle" dominant-baseline="central">Query history</text>
+          <text class="ts" x="565" y="232" text-anchor="middle" dominant-baseline="central">Past Q&amp;A + known pitfalls</text>
+        </g>
+        <text class="impl" x="565" y="258" text-anchor="middle">[Implemented: DB log]</text>
+
+        <!-- Arrows from context to LLM -->
+        <line x1="117" y1="252" x2="280" y2="306" class="arr" marker-end="url(#arrow)"/>
+        <line x1="340" y1="252" x2="340" y2="306" class="arr" marker-end="url(#arrow)"/>
+        <line x1="562" y1="252" x2="400" y2="306" class="arr" marker-end="url(#arrow)"/>
+
+        <!-- LLM -->
+        <g class="n-purple">
+          <rect x="190" y="306" width="300" height="56" rx="8" stroke-width="0.5"/>
+          <text class="th" x="340" y="326" text-anchor="middle" dominant-baseline="central">LLM — text-to-SQL</text>
+          <text class="ts" x="340" y="346" text-anchor="middle" dominant-baseline="central">GPT-4o-mini + chain-of-thought</text>
+        </g>
+        <line x1="340" y1="362" x2="340" y2="398" class="arr" marker-end="url(#arrow)"/>
+
+        <!-- MSSQL -->
+        <g class="n-gray">
+          <rect x="210" y="398" width="260" height="44" rx="8" stroke-width="0.5"/>
+          <text class="th" x="340" y="420" text-anchor="middle" dominant-baseline="central">MSSQL — data fetch</text>
+        </g>
+
+        <!-- Arrows to outputs -->
+        <line x1="290" y1="442" x2="118" y2="488" class="arr" marker-end="url(#arrow)"/>
+        <line x1="340" y1="442" x2="340" y2="488" class="arr" marker-end="url(#arrow)"/>
+        <line x1="390" y1="442" x2="562" y2="488" class="arr" marker-end="url(#arrow)"/>
+
+        <!-- Output row -->
+        <g class="n-coral">
+          <rect x="22" y="488" width="192" height="56" rx="8" stroke-width="0.5"/>
+          <text class="th" x="118" y="508" text-anchor="middle" dominant-baseline="central">Answer + insight</text>
+          <text class="ts" x="118" y="528" text-anchor="middle" dominant-baseline="central">LLM summary in English</text>
+        </g>
+
+        <g class="n-coral">
+          <rect x="244" y="488" width="192" height="56" rx="8" stroke-width="0.5"/>
+          <text class="th" x="340" y="508" text-anchor="middle" dominant-baseline="central">Chart</text>
+          <text class="ts" x="340" y="528" text-anchor="middle" dominant-baseline="central">Bar / line / scatter (Altair)</text>
+        </g>
+
+        <g class="n-coral">
+          <rect x="466" y="488" width="192" height="56" rx="8" stroke-width="0.5"/>
+          <text class="th" x="562" y="508" text-anchor="middle" dominant-baseline="central">SQL shown</text>
+          <text class="ts" x="562" y="528" text-anchor="middle" dominant-baseline="central">Transparent to user</text>
+        </g>
+
+        <!-- Feedback amber box -->
+        <g class="n-amber">
+          <rect x="18" y="574" width="184" height="52" rx="8" stroke-width="0.5"/>
+          <text class="th" x="110" y="594" text-anchor="middle" dominant-baseline="central">👍 / 👎 feedback</text>
+          <text class="ts" x="110" y="614" text-anchor="middle" dominant-baseline="central">Logged → query history</text>
+        </g>
+
+        <!-- Feedback loop: down → left margin → up to Business logic -->
+        <path d="M 110 626 L 110 648 L 8 648 L 8 222 L 18 222"
+              class="arr" fill="none" marker-end="url(#arrow)"/>
+      </svg>
     </div>
 
     <div class="article-body">
-      <h2>The Problem</h2>
-      <p>At Bank SinoPac, business teams needed data — but getting it meant filing a request, waiting for an analyst, and hoping the output matched what they actually wanted. The SQL bottleneck was real: <strong>non-technical stakeholders couldn't self-serve</strong>, and analysts spent a disproportionate amount of time on ad-hoc queries instead of higher-leverage work.</p>
-      <p>The question I set out to answer: could an LLM reliably translate natural language into accurate SQL — not in a demo, but in a production banking environment with real schema complexity?</p>
+      <h2>What Was Shipped</h2>
+      <p>By the time I left, the system could accept free-text questions through a chatbot interface, route them through the pipeline, and return a data table, chart, and plain-language summary — all in one view. Users could adjust chart type and axis selection. Every interaction was logged, and the thumbs-up / thumbs-down mechanism was live.</p>
+      <p>The knowledge base curation (business logic + schema context) was complete. The vector database layer that would have made retrieval more dynamic was scoped and designed, but not implemented before my departure.</p>
 
-      <h2>The Approach</h2>
-      <p>I architected <strong>GenBI</strong> using a RAG (Retrieval-Augmented Generation) pipeline on top of LangGraph. The core idea was to give the model the right context at query time — not by stuffing the entire schema into the prompt, but by retrieving only the relevant table and column definitions using a <strong>vector database</strong>.</p>
+      <h2>Live Demo</h2>
+      <p>Below is a representative output for the query: <em>"What is the age distribution of digital banking customers, and how does it compare to non-digital customers?"</em></p>
+    </div>
 
-      <div class="inline-img">
-        <div class="placeholder">RAG Pipeline Diagram<br>coming soon</div>
+    <!-- Demo Mockup -->
+    <div class="demo-wrap">
+      <div class="demo-label">Product Demo — Age Distribution Query</div>
+      <div class="app">
+        <div class="topbar">
+          <div class="topbar-dot" style="background:#ff5f57"></div>
+          <div class="topbar-dot" style="background:#febc2e"></div>
+          <div class="topbar-dot" style="background:#28c840"></div>
+          <span class="topbar-title">GenBI — Intelligent Data Query System · Bank SinoPac Digital Banking</span>
+        </div>
+        <div class="left-col">
+          <div class="col-header">Ask a Question</div>
+          <div>
+            <div class="input-label">Enter your question:</div>
+            <div class="input-box">What is the age distribution of digital banking customers? How does it compare to non-digital customers?</div>
+          </div>
+          <button class="submit-btn">▶ Submit</button>
+          <div class="answer-block">
+            <div class="section-label">Answer</div>
+            <div class="answer-text">
+              The bank's total customer base is approximately <strong style="color:#fff">10.83M</strong>. Digital banking customers account for <strong style="color:#ff4b4b">1.03M</strong>, representing a 9.5% digital penetration rate.<br><br>
+              Digital customers are concentrated in the <strong style="color:#ff4b4b">25–44 age group</strong>, comprising 58% of the digital segment. Non-digital customers skew older, with <strong style="color:#3b8bd4">55+ accounting for 41%</strong> of that group.<br><br>
+              Customers aged 65+ represent less than 3% of digital users — indicating significant growth potential in senior digital adoption.
+            </div>
+          </div>
+          <div class="sql-block">
+            <div class="sql-label">Generated SQL Query</div>
+            <div class="sql-code">
+              <span class="kw">SELECT</span><br>
+              &nbsp;&nbsp;<span class="kw">CASE</span><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">WHEN</span> <span class="col">f3k9_age</span> &lt; 25 <span class="kw">THEN</span> 'Under 25'<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">WHEN</span> <span class="col">f3k9_age</span> <span class="kw">BETWEEN</span> 25 <span class="kw">AND</span> 34 <span class="kw">THEN</span> '25–34'<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">WHEN</span> <span class="col">f3k9_age</span> <span class="kw">BETWEEN</span> 35 <span class="kw">AND</span> 44 <span class="kw">THEN</span> '35–44'<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">WHEN</span> <span class="col">f3k9_age</span> <span class="kw">BETWEEN</span> 45 <span class="kw">AND</span> 54 <span class="kw">THEN</span> '45–54'<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">WHEN</span> <span class="col">f3k9_age</span> <span class="kw">BETWEEN</span> 55 <span class="kw">AND</span> 64 <span class="kw">THEN</span> '55–64'<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">ELSE</span> '65+'<br>
+              &nbsp;&nbsp;<span class="kw">END AS</span> age_group,<br>
+              &nbsp;&nbsp;<span class="kw">SUM</span>(<span class="col">b7x2_digi_flag</span>) <span class="kw">AS</span> digital_customers,<br>
+              &nbsp;&nbsp;<span class="kw">COUNT</span>(*) - <span class="kw">SUM</span>(<span class="col">b7x2_digi_flag</span>) <span class="kw">AS</span> non_digital<br>
+              <span class="kw">FROM</span> <span class="tbl">prd_dw.dbo.t8m4_cus_summary</span><br>
+              <span class="kw">WHERE</span> (<span class="col">a1n5_save_mark</span> &gt;= 1<br>
+              &nbsp;&nbsp;<span class="kw">OR</span> <span class="col">c6p1_cc_mark</span> &gt;= 1)<br>
+              <span class="kw">GROUP BY</span> age_group<br>
+              <span class="kw">ORDER BY</span> digital_customers <span class="kw">DESC</span>;
+            </div>
+          </div>
+          <div class="feedback-row">
+            <span class="fb-label">Was this helpful?</span>
+            <button class="fb-btn">👍</button>
+            <button class="fb-btn">👎</button>
+          </div>
+        </div>
+        <div class="right-col">
+          <div class="col-header">Output Data</div>
+          <div class="stat-row">
+            <div class="stat-card">
+              <div class="stat-num">10.83M</div>
+              <div class="stat-label">Total customers</div>
+              <div class="stat-sub">Active accounts</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-num" style="color:#ff4b4b">1.03M</div>
+              <div class="stat-label">Digital customers</div>
+              <div class="stat-sub">9.5% penetration rate</div>
+            </div>
+          </div>
+          <div class="chart-area">
+            <div class="chart-title">Age distribution — Digital vs. Non-digital customers</div>
+            <div class="legend">
+              <div class="legend-item"><div class="legend-dot" style="background:#ff4b4b"></div>Digital</div>
+              <div class="legend-item"><div class="legend-dot" style="background:#3b8bd4"></div>Non-digital</div>
+            </div>
+            <div class="bar-row"><div class="bar-label">Under 25</div><div class="bar-track"><div class="bar-d" style="width:14%"></div><div class="bar-n" style="width:6%"></div></div><div class="bar-val">144K / 650K</div></div>
+            <div class="bar-row"><div class="bar-label">25–34</div><div class="bar-track"><div class="bar-d" style="width:28%"></div><div class="bar-n" style="width:12%"></div></div><div class="bar-val">288K / 1.24M</div></div>
+            <div class="bar-row"><div class="bar-label">35–44</div><div class="bar-track"><div class="bar-d" style="width:30%"></div><div class="bar-n" style="width:15%"></div></div><div class="bar-val">309K / 1.58M</div></div>
+            <div class="bar-row"><div class="bar-label">45–54</div><div class="bar-track"><div class="bar-d" style="width:17%"></div><div class="bar-n" style="width:22%"></div></div><div class="bar-val">175K / 2.31M</div></div>
+            <div class="bar-row"><div class="bar-label">55–64</div><div class="bar-track"><div class="bar-d" style="width:7%"></div><div class="bar-n" style="width:26%"></div></div><div class="bar-val">72K / 2.72M</div></div>
+            <div class="bar-row"><div class="bar-label">65+</div><div class="bar-track"><div class="bar-d" style="width:3%"></div><div class="bar-n" style="width:18%"></div></div><div class="bar-val">31K / 1.87M</div></div>
+          </div>
+          <div class="insight-box">
+            <div class="insight-label">Key Insights</div>
+            <div class="insight-item">Digital customers concentrated in 25–44 (58% of digital segment)</div>
+            <div class="insight-item">Non-digital skews older — 55+ accounts for 41% of that group</div>
+            <div class="insight-item">35–44 shows the highest digital penetration rate (~16%)</div>
+            <div class="insight-item">65+ penetration under 2% — largest untapped growth opportunity</div>
+          </div>
+        </div>
       </div>
+    </div>
 
-      <p>Two techniques drove the accuracy improvement from 30% to 70%:</p>
-      <p><strong>Chain-of-thought prompting</strong> — rather than asking the model to produce SQL directly, I prompted it to reason through the query step-by-step: identify the relevant tables, understand the join conditions, then write the SQL. This dramatically reduced hallucinated column names and incorrect aggregations.</p>
-      <p><strong>Persona engineering</strong> — the model was given an explicit role as a "senior data analyst at a Taiwanese bank" with specific instructions about naming conventions, business logic, and common query patterns. This grounded its outputs in the actual domain context.</p>
-
-      <h2>Results</h2>
-      <p>Query accuracy went from <strong>30% to 70%</strong> — meaning 7 in 10 natural language questions produced correct, runnable SQL on the first attempt. Non-technical users could now interrogate transaction data directly, reducing analyst queue depth and enabling faster business decisions.</p>
-      <p>This was one of the first internal LLM deployments at the bank, shipped in early 2025.</p>
-
-      <h2>What I'd Do Differently</h2>
-      <p><em>The remaining 30% gap is largely schema ambiguity — cases where two columns could plausibly answer the question. A feedback loop that captures user corrections and fine-tunes retrieval ranking would be the next meaningful lever.</em></p>
+    <div class="article-body">
+      <h2>Reflections</h2>
+      <p><em>The 30% accuracy gap that remained was largely driven by schema ambiguity — cases where two columns could plausibly answer the same question. A retrieval layer trained on the curated knowledge base would have been the next meaningful lever. The feedback loop data we collected would have been the training signal.</em></p>
+      <p><em>Building this at a bank in early 2025 — before most teams had attempted it in production — was a forcing function for thinking through what "reliable enough" means when the data touches real customers and real decisions.</em></p>
     </div>
 
     <div class="article-tags">
       <span class="tag">LangGraph</span><span class="tag">RAG</span><span class="tag">LLM</span>
-      <span class="tag">Vector DB</span><span class="tag">Text-to-SQL</span><span class="tag">Python</span>
-      <span class="tag">Chain-of-Thought</span><span class="tag">Prompt Engineering</span>
+      <span class="tag">Text-to-SQL</span><span class="tag">GPT-4o-mini</span><span class="tag">Streamlit</span>
+      <span class="tag">MSSQL</span><span class="tag">Chain-of-Thought</span><span class="tag">Prompt Engineering</span>
     </div>
 
     <a href="../projects.html" class="back-link">← Back to all projects</a>
