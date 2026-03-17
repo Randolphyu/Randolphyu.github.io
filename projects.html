@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects — Yuhuan Yu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f4f0;
+      --surface: #eeecea;
+      --border: #ccc9c0;
+      --text: #1a1a18;
+      --muted: #5e5c56;
+      --accent: #1a1a18;
+      --accent-dim: rgba(26,26,24,0.06);
+      --mono: 'IBM Plex Mono', monospace;
+      --sans: 'Playfair Display', serif;
+      --dmm: 'DM Mono', monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    /* Nav */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      padding: 20px 36px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(245,244,240,0.92);
+      backdrop-filter: blur(12px);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    nav .logo {
+      font-family: var(--sans); font-weight: 700; font-size: 15px;
+      color: var(--text); text-decoration: none;
+    }
+    nav ul { display: flex; gap: 32px; list-style: none; }
+    nav a {
+      color: var(--muted); text-decoration: none; font-size: 11px;
+      letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s;
+    }
+    nav a:hover, nav a.active { color: var(--text); }
+
+    /* Layout */
+    .page {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      min-height: 100vh;
+      padding-top: 61px;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: sticky;
+      top: 61px;
+      height: calc(100vh - 61px);
+      border-right: 1px solid var(--border);
+      padding: 48px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      overflow-y: auto;
+    }
+    .sidebar-label {
+      font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 16px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .sidebar-label::before {
+      content: ''; display: inline-block; width: 14px; height: 1px; background: var(--text);
+    }
+    .sidebar-btn {
+      display: flex; flex-direction: column; gap: 3px;
+      padding: 14px 16px;
+      border: 1px solid transparent;
+      background: none; text-align: left;
+      cursor: pointer; transition: all 0.18s;
+      text-decoration: none;
+    }
+    .sidebar-btn:hover { background: var(--surface); border-color: var(--border); }
+    .sidebar-btn.active {
+      background: var(--text); border-color: var(--text);
+    }
+    .sidebar-btn.active .sb-title { color: var(--bg); }
+    .sidebar-btn.active .sb-count { color: rgba(245,244,240,0.55); }
+    .sb-title {
+      font-family: var(--sans); font-size: 14px; font-weight: 700;
+      color: var(--text); letter-spacing: -0.01em; line-height: 1.2;
+    }
+    .sb-count {
+      font-size: 10px; color: var(--muted); letter-spacing: 0.06em; font-family: var(--dmm);
+    }
+
+    /* Main content */
+    .main {
+      padding: 48px 56px;
+      max-width: 860px;
+    }
+
+    /* Category header */
+    .cat-header { margin-bottom: 40px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+    .cat-label {
+      font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 10px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .cat-label::before { content: ''; width: 14px; height: 1px; background: var(--text); display: inline-block; }
+    .cat-title {
+      font-family: var(--sans); font-size: 36px; font-weight: 700;
+      letter-spacing: -0.03em; color: var(--text); line-height: 1.1; margin-bottom: 10px;
+    }
+    .cat-desc { font-size: 13px; color: var(--muted); max-width: 520px; line-height: 1.85; }
+
+    /* Panel */
+    .panel { display: none; }
+    .panel.active { display: block; }
+
+    /* Project cards - Medium style */
+    .cards { display: flex; flex-direction: column; gap: 0; }
+    .card {
+      display: grid;
+      grid-template-columns: 1fr 180px;
+      gap: 32px;
+      align-items: start;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      transition: background 0.18s;
+    }
+    .card:first-child { padding-top: 0; }
+    .card:last-child { border-bottom: none; }
+    .card:hover .card-title { text-decoration: underline; text-underline-offset: 3px; }
+
+    .card-meta {
+      font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 10px; font-family: var(--dmm);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .card-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--border); display: inline-block; }
+    .card-title {
+      font-family: var(--sans); font-size: 20px; font-weight: 700;
+      color: var(--text); letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 10px;
+    }
+    .card-excerpt {
+      font-size: 13px; color: var(--muted); line-height: 1.85; margin-bottom: 14px;
+    }
+    .card-more {
+      font-size: 11px; color: var(--text); letter-spacing: 0.05em;
+      border-bottom: 1px solid var(--text); padding-bottom: 1px;
+      display: inline-block; transition: opacity 0.2s;
+    }
+    .card:hover .card-more { opacity: 0.5; }
+    .card-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 14px; }
+    .tag {
+      font-size: 10px; padding: 3px 8px;
+      border: 1px solid var(--border); color: var(--muted); letter-spacing: 0.05em;
+    }
+
+    /* Thumbnail */
+    .card-thumb {
+      width: 180px; height: 120px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; overflow: hidden;
+    }
+    .card-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .card-thumb .placeholder {
+      font-size: 10px; color: var(--border); letter-spacing: 0.1em;
+      text-transform: uppercase; text-align: center; line-height: 1.8;
+      font-family: var(--dmm);
+    }
+
+    /* Empty state */
+    .coming-soon {
+      padding: 60px 0;
+      font-size: 12px; color: var(--muted); letter-spacing: 0.06em;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .coming-soon::before { content: ''; width: 24px; height: 1px; background: var(--border); display: inline-block; }
+
+    @media (max-width: 768px) {
+      .page { grid-template-columns: 1fr; }
+      .sidebar { position: static; height: auto; flex-direction: row; overflow-x: auto; padding: 20px 24px; border-right: none; border-bottom: 1px solid var(--border); gap: 8px; }
+      .sidebar-label { display: none; }
+      .main { padding: 32px 24px; }
+      .card { grid-template-columns: 1fr; }
+      .card-thumb { width: 100%; height: 180px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="logo">Yuhuan Yu</a>
+    <ul>
+      <li><a href="projects.html" class="active">Projects</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="page">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-label">Topics</div>
+
+      <button class="sidebar-btn active" onclick="switchPanel('llm', this)">
+        <span class="sb-title">LLM</span>
+        <span class="sb-count">1 project</span>
+      </button>
+
+      <button class="sidebar-btn" onclick="switchPanel('de', this)">
+        <span class="sb-title">Data Engineering</span>
+        <span class="sb-count">2 projects</span>
+      </button>
+
+      <button class="sidebar-btn" onclick="switchPanel('analytics', this)">
+        <span class="sb-title">Analytics & ML</span>
+        <span class="sb-count">2 projects</span>
+      </button>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+
+      <!-- LLM Panel -->
+      <div class="panel active" id="panel-llm">
+        <div class="cat-header">
+          <div class="cat-label">Topic</div>
+          <div class="cat-title">LLM</div>
+          <div class="cat-desc">Projects at the intersection of large language models and data infrastructure — making data accessible through natural language.</div>
+        </div>
+        <div class="cards">
+
+          <a href="projects/genbi.html" class="card">
+            <div>
+              <div class="card-meta">
+                Bank SinoPac <span class="dot"></span> 2025 <span class="dot"></span> Data Engineering
+              </div>
+              <div class="card-title">GenBI — LLM-Powered Text-to-SQL Agent</div>
+              <div class="card-excerpt">
+                What if anyone in the company could query 10 million transaction records just by asking a question in plain English? That was the problem. In early 2025, I built GenBI — an internal agent that translates natural language into SQL using RAG architecture and LangGraph, pushing query accuracy from 30% to 70%...
+              </div>
+              <span class="card-more">Read more</span>
+              <div class="card-tags">
+                <span class="tag">LangGraph</span>
+                <span class="tag">RAG</span>
+                <span class="tag">Text-to-SQL</span>
+                <span class="tag">Vector DB</span>
+                <span class="tag">Python</span>
+              </div>
+            </div>
+            <div class="card-thumb">
+              <div class="placeholder">Screenshot<br>coming soon</div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- Data Engineering Panel -->
+      <div class="panel" id="panel-de">
+        <div class="cat-header">
+          <div class="cat-label">Topic</div>
+          <div class="cat-title">Data Engineering</div>
+          <div class="cat-desc">Building the pipes, systems, and infrastructure that make reliable data analysis possible at scale.</div>
+        </div>
+        <div class="cards">
+
+          <a href="projects/bi-infrastructure.html" class="card">
+            <div>
+              <div class="card-meta">
+                Bank SinoPac <span class="dot"></span> 2023–2025 <span class="dot"></span> BI / ETL
+              </div>
+              <div class="card-title">BI Infrastructure — Data Catalog & 300-Dimension Dashboard</div>
+              <div class="card-excerpt">
+                200+ analysts, one Tableau Server, and no one could find anything. I built an automated sitemap tool that cut report search time by 50% — and separately designed a 300-dimension customer profile dashboard that eliminated 40 hours of manual analyst work every month...
+              </div>
+              <span class="card-more">Read more</span>
+              <div class="card-tags">
+                <span class="tag">Tableau Server</span>
+                <span class="tag">ETL</span>
+                <span class="tag">Dimensional Modeling</span>
+                <span class="tag">BI Governance</span>
+              </div>
+            </div>
+            <div class="card-thumb">
+              <div class="placeholder">Screenshot<br>coming soon</div>
+            </div>
+          </a>
+
+          <a href="projects/etl-pipelines.html" class="card">
+            <div>
+              <div class="card-meta">
+                Bank SinoPac <span class="dot"></span> 2025 <span class="dot"></span> ETL / Data Quality
+              </div>
+              <div class="card-title">Production ETL Pipelines & Data Quality Monitoring</div>
+              <div class="card-excerpt">
+                Processing 5M+ daily records with 99.8% accuracy sounds straightforward — until you're dealing with upstream inconsistencies, schema drift, and dashboards that can't afford to be wrong. Here's how I designed the pipeline and the monitoring layer that kept it honest...
+              </div>
+              <span class="card-more">Read more</span>
+              <div class="card-tags">
+                <span class="tag">KNIME</span>
+                <span class="tag">SSIS</span>
+                <span class="tag">Tableau Prep</span>
+                <span class="tag">MongoDB</span>
+                <span class="tag">Postman</span>
+              </div>
+            </div>
+            <div class="card-thumb">
+              <div class="placeholder">Screenshot<br>coming soon</div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- Analytics & ML Panel -->
+      <div class="panel" id="panel-analytics">
+        <div class="cat-header">
+          <div class="cat-label">Topic</div>
+          <div class="cat-title">Analytics & ML</div>
+          <div class="cat-desc">Turning messy behavioral data into decisions — through experimentation, segmentation, and predictive modeling.</div>
+        </div>
+        <div class="cards">
+
+          <a href="projects/growth-analytics.html" class="card">
+            <div>
+              <div class="card-meta">
+                Bank SinoPac · Gamania <span class="dot"></span> 2022–2025 <span class="dot"></span> Experimentation
+              </div>
+              <div class="card-title">Growth Analytics — A/B Testing & Marketing Optimization</div>
+              <div class="card-excerpt">
+                Across two industries and 500K+ users, I designed and ran A/B experiments that moved real numbers: 90% CTR lift on push notifications, 50% boost in installment conversion, and 30% YoY FX transaction growth. This is what rigorous experimentation looks like in production...
+              </div>
+              <span class="card-more">Read more</span>
+              <div class="card-tags">
+                <span class="tag">A/B Testing</span>
+                <span class="tag">RFM Modeling</span>
+                <span class="tag">SQL</span>
+                <span class="tag">Python</span>
+                <span class="tag">BigQuery</span>
+              </div>
+            </div>
+            <div class="card-thumb">
+              <div class="placeholder">Screenshot<br>coming soon</div>
+            </div>
+          </a>
+
+          <a href="projects/credit-fraud.html" class="card">
+            <div>
+              <div class="card-meta">
+                Bank SinoPac <span class="dot"></span> 2023–2024 <span class="dot"></span> Risk Analytics
+              </div>
+              <div class="card-title">Credit Card Fraud Detection — Reducing Failure Rate by 17%</div>
+              <div class="card-excerpt">
+                Fraud detection is a balance problem: too aggressive and you block legitimate transactions; too lenient and you absorb losses. I analyzed decline and fraud patterns to re-tune the detection strategy, achieving a 17% reduction in monthly credit card failure rates while keeping fraud cost flat...
+              </div>
+              <span class="card-more">Read more</span>
+              <div class="card-tags">
+                <span class="tag">Risk Modeling</span>
+                <span class="tag">SQL</span>
+                <span class="tag">Statistical Analysis</span>
+                <span class="tag">MSSQL</span>
+              </div>
+            </div>
+            <div class="card-thumb">
+              <div class="placeholder">Screenshot<br>coming soon</div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script>
+    function switchPanel(id, btn) {
+      // Hide all panels
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      // Deactivate all buttons
+      document.querySelectorAll('.sidebar-btn').forEach(b => b.classList.remove('active'));
+      // Show selected
+      document.getElementById('panel-' + id).classList.add('active');
+      btn.classList.add('active');
+    }
+  </script>
+</body>
+</html>
