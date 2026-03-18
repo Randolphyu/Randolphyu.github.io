@@ -6,38 +6,6 @@
   <title>BI Infrastructure — Yuhuan Yu</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
-  <style>
-    :root { --bg: #f5f4f0; --surface: #eeecea; --border: #ccc9c0; --text: #1a1a18; --muted: #5e5c56; --mono: 'IBM Plex Mono', monospace; --sans: 'Playfair Display', serif; --dmm: 'DM Mono', monospace; }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: var(--bg); color: var(--text); font-family: var(--mono); font-size: 14px; line-height: 1.75; }
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; padding: 20px 36px; border-bottom: 1px solid var(--border); background: rgba(245,244,240,0.92); backdrop-filter: blur(12px); display: flex; justify-content: space-between; align-items: center; }
-    nav .logo { font-family: var(--sans); font-weight: 700; font-size: 15px; color: var(--text); text-decoration: none; }
-    .nav-back { font-size: 11px; color: var(--muted); text-decoration: none; letter-spacing: 0.08em; display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
-    .nav-back:hover { color: var(--text); }
-    .article { max-width: 680px; margin: 0 auto; padding: 120px 36px 100px; }
-    .article-meta { font-size: 11px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; font-family: var(--dmm); display: flex; align-items: center; gap: 10px; }
-    .article-meta span { color: var(--border); }
-    h1 { font-family: var(--sans); font-size: clamp(32px, 5vw, 52px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; color: var(--text); margin-bottom: 20px; }
-    .article-sub { font-size: 16px; color: var(--muted); line-height: 1.7; margin-bottom: 36px; font-style: italic; font-family: var(--sans); }
-    .impact-bar { display: flex; gap: 0; border: 1px solid var(--border); margin-bottom: 48px; background: var(--surface); }
-    .impact-item { flex: 1; padding: 18px 20px; border-right: 1px solid var(--border); }
-    .impact-item:last-child { border-right: none; }
-    .impact-num { font-family: var(--sans); font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
-    .impact-label { font-size: 10px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 3px; }
-    .hero-img { width: 100%; aspect-ratio: 16/9; background: var(--surface); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; margin-bottom: 48px; }
-    .hero-img .placeholder { font-size: 11px; color: var(--border); letter-spacing: 0.12em; text-transform: uppercase; font-family: var(--dmm); }
-    .article-body { font-size: 15px; color: var(--text); line-height: 1.9; }
-    .article-body h2 { font-family: var(--sans); font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin: 48px 0 16px; }
-    .article-body p { margin-bottom: 20px; }
-    .article-body strong { font-weight: 500; }
-    .article-body em { font-style: italic; color: var(--muted); }
-    .inline-img { width: 100%; aspect-ratio: 16/9; background: var(--surface); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; margin: 32px 0; }
-    .inline-img .placeholder { font-size: 11px; color: var(--border); letter-spacing: 0.12em; text-transform: uppercase; font-family: var(--dmm); text-align: center; line-height: 1.8; }
-    .article-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); }
-    .tag { font-size: 10px; padding: 4px 10px; border: 1px solid var(--border); color: var(--muted); letter-spacing: 0.05em; }
-    .back-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 48px; font-size: 12px; color: var(--muted); text-decoration: none; letter-spacing: 0.06em; transition: color 0.2s; border-top: 1px solid var(--border); padding-top: 32px; width: 100%; }
-    .back-link:hover { color: var(--text); }
-  </style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-EZ5BXQZXBK"></script>
   <script>
@@ -46,16 +14,159 @@
     gtag("js", new Date());
     gtag("config", "G-EZ5BXQZXBK");
   </script>
+  <style>
+    :root { --bg:#f5f4f0; --surface:#eeecea; --border:#ccc9c0; --text:#1a1a18; --muted:#5e5c56; --mono:'IBM Plex Mono',monospace; --sans:'Playfair Display',serif; --dmm:'DM Mono',monospace; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{background:var(--bg);color:var(--text);font-family:var(--mono);font-size:14px;line-height:1.75;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:20px 36px;border-bottom:1px solid var(--border);background:rgba(245,244,240,0.92);backdrop-filter:blur(12px);display:flex;justify-content:space-between;align-items:center;}
+    nav .logo{font-family:var(--sans);font-weight:700;font-size:15px;color:var(--text);text-decoration:none;}
+    .nav-back{font-size:11px;color:var(--muted);text-decoration:none;letter-spacing:0.08em;display:flex;align-items:center;gap:6px;transition:color 0.2s;}
+    .nav-back:hover{color:var(--text);}
+    .article{max-width:820px;margin:0 auto;padding:120px 36px 100px;}
+    .article-meta{font-size:11px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:20px;font-family:var(--dmm);display:flex;align-items:center;gap:10px;}
+    .article-meta span{color:var(--border);}
+    h1{font-family:var(--sans);font-size:clamp(32px,5vw,52px);font-weight:700;letter-spacing:-0.03em;line-height:1.1;color:var(--text);margin-bottom:20px;}
+    .article-sub{font-size:16px;color:var(--muted);line-height:1.7;margin-bottom:36px;font-style:italic;font-family:var(--sans);}
+    .impact-bar{display:flex;border:1px solid var(--border);margin-bottom:48px;background:var(--surface);}
+    .impact-item{flex:1;padding:18px 20px;border-right:1px solid var(--border);}
+    .impact-item:last-child{border-right:none;}
+    .impact-num{font-family:var(--sans);font-size:22px;font-weight:700;color:var(--text);letter-spacing:-0.02em;}
+    .impact-label{font-size:10px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-top:3px;}
+    .article-body{font-size:15px;color:var(--text);line-height:1.9;}
+    .article-body h2{font-family:var(--sans);font-size:24px;font-weight:700;letter-spacing:-0.02em;margin:52px 0 16px;}
+    .article-body p{margin-bottom:20px;}
+    .article-body strong{font-weight:500;}
+    .article-body em{font-style:italic;color:var(--muted);}
+    .mockup-wrap{margin:36px 0;border:1px solid var(--border);}
+    .mockup-label{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);padding:10px 14px;border-bottom:1px solid var(--border);background:var(--surface);font-family:var(--dmm);display:flex;justify-content:space-between;align-items:center;}
+    .mockup-label .note{color:var(--border);font-size:10px;}
+    .mockup-inner{padding:16px;background:var(--surface);}
+    .article-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:48px;padding-top:32px;border-top:1px solid var(--border);}
+    .tag{font-size:10px;padding:4px 10px;border:1px solid var(--border);color:var(--muted);letter-spacing:0.05em;}
+    .back-link{display:inline-flex;align-items:center;gap:8px;margin-top:32px;font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:0.06em;transition:color 0.2s;border-top:1px solid var(--border);padding-top:32px;width:100%;}
+    .back-link:hover{color:var(--text);}
+
+    /* ===== Dashboard mockup styles ===== */
+    .db{font-family:var(--mono);font-size:12px;color:var(--text);background:#f7f5f1;border:0.5px solid var(--border);}
+    .db-header{background:#fff;border-bottom:0.5px solid var(--border);padding:10px 16px;display:flex;justify-content:space-between;align-items:center;}
+    .db-title{font-size:15px;font-weight:500;}
+    .db-sub{font-size:11px;color:var(--muted);margin-top:2px;}
+    .db-menu{display:flex;gap:4px;}
+    .db-menu span{font-size:11px;padding:3px 10px;background:var(--surface);border:0.5px solid var(--border);border-radius:3px;cursor:default;color:var(--muted);}
+    .db-menu span.active{background:#2a2a28;color:#fff;border-color:#2a2a28;}
+    .hamburger{font-size:16px;color:var(--muted);cursor:default;padding:4px 8px;border:0.5px solid var(--border);}
+    .kpi-bar{background:#fff;border-bottom:0.5px solid var(--border);display:flex;}
+    .kpi-item{flex:1;padding:8px 12px;border-right:0.5px solid var(--border);text-align:center;}
+    .kpi-item:last-child{border-right:none;}
+    .kpi-label{font-size:10px;color:var(--muted);margin-bottom:3px;}
+    .kpi-val{font-size:14px;font-weight:500;}
+    .filter-bar{background:#fff;border-bottom:0.5px solid var(--border);padding:6px 14px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
+    .filter-tag{font-size:10px;padding:2px 8px;border:0.5px solid var(--border);border-radius:2px;color:var(--muted);cursor:default;}
+    .db-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;padding:8px;}
+    .db-card{background:#fff;border:0.5px solid var(--border);padding:10px;overflow:hidden;min-width:0;}
+    .db-card.span2{grid-column:span 2;}
+    .card-title{font-size:10px;font-weight:500;color:var(--muted);letter-spacing:0.05em;text-transform:uppercase;margin-bottom:10px;}
+    .bfly-row{display:flex;align-items:center;margin-bottom:4px;gap:4px;}
+    .bfly-label{font-size:10px;color:var(--muted);width:44px;text-align:right;flex-shrink:0;}
+    .bfly-left{display:flex;justify-content:flex-end;width:80px;}
+    .bfly-right{width:80px;}
+    .bfly-bar-l{height:10px;background:#85B7EB;border-radius:1px 0 0 1px;}
+    .bfly-bar-r{height:10px;background:#F0997B;border-radius:0 1px 1px 0;}
+    .bfly-legend{display:flex;gap:12px;margin-bottom:8px;}
+    .bfly-dot{width:8px;height:8px;border-radius:1px;display:inline-block;margin-right:4px;}
+    .hbar-row{display:flex;align-items:center;gap:6px;margin-bottom:4px;}
+    .hbar-label{font-size:10px;color:var(--muted);width:60px;flex-shrink:0;text-align:right;}
+    .hbar-track{flex:1;height:10px;background:var(--surface);border-radius:1px;overflow:hidden;}
+    .hbar-fill{height:100%;background:#EF9F27;border-radius:1px;}
+    .hbar-fill.blue{background:#378ADD;}
+    .hbar-fill.teal{background:#1D9E75;}
+    .hbar-val{font-size:10px;color:var(--muted);width:36px;flex-shrink:0;}
+    .aum-bar{display:flex;align-items:flex-end;gap:3px;height:60px;padding:0 4px;overflow:hidden;}
+    .aum-col{display:flex;flex-direction:column;align-items:center;flex:1;}
+    .aum-rect{width:100%;background:#B5D4F4;border-radius:1px 1px 0 0;}
+    .aum-rect.hi{background:#378ADD;}
+    .aum-xlabel{font-size:9px;color:var(--muted);margin-top:3px;text-align:center;}
+    .drill-row{display:flex;align-items:center;gap:6px;margin-bottom:5px;}
+    .drill-label{font-size:10px;color:var(--muted);width:80px;flex-shrink:0;}
+    .drill-bar{flex:1;height:12px;background:#E1F5EE;border-radius:1px;overflow:hidden;}
+    .drill-fill{height:100%;background:#1D9E75;border-radius:1px;}
+    .drill-val{font-size:10px;font-weight:500;width:32px;text-align:right;flex-shrink:0;}
+    .drill-sub{margin-left:8px;display:flex;gap:3px;flex:1;}
+    .chip{font-size:9px;padding:1px 5px;background:#E1F5EE;color:#0F6E56;border-radius:2px;}
+    .segment-row{display:flex;align-items:center;gap:6px;margin-bottom:4px;}
+    .seg-label{font-size:10px;color:var(--muted);width:56px;flex-shrink:0;}
+    .seg-track{flex:1;height:11px;background:var(--surface);border-radius:1px;overflow:hidden;}
+    .seg-fill{height:100%;background:#AFA9EC;border-radius:1px;}
+    .seg-val{font-size:10px;color:var(--muted);width:32px;text-align:right;}
+    .annotation{display:inline-flex;align-items:center;gap:4px;font-size:10px;color:#185FA5;background:#E6F1FB;padding:2px 7px;border-radius:2px;margin-bottom:6px;}
+
+    /* ===== Analysis mockup styles ===== */
+    .an{font-family:var(--mono);font-size:12px;color:var(--text);}
+    .an-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+    .an-panel{border:0.5px solid var(--border);background:#fff;}
+    .an-panel-hd{background:#2a2a28;color:#fff;font-size:11px;font-weight:500;padding:6px 12px;letter-spacing:0.04em;display:flex;align-items:center;justify-content:space-between;}
+    .col-hd{display:grid;grid-template-columns:90px 1fr 1fr 1fr;padding:4px 8px;background:var(--surface);border-bottom:0.5px solid var(--border);}
+    .col-hd span{font-size:10px;color:var(--muted);text-align:center;}
+    .col-hd span:first-child{text-align:left;}
+    .trow{display:grid;grid-template-columns:90px 1fr 1fr 1fr;padding:4px 8px;border-bottom:0.5px solid var(--border);align-items:center;gap:4px;}
+    .trow:last-child{border-bottom:none;}
+    .trow-label{font-size:10px;color:var(--muted);}
+    .trow-cell{display:flex;flex-direction:column;align-items:center;gap:2px;}
+    .trow-bar-wrap{width:100%;height:8px;background:var(--surface);border-radius:1px;overflow:hidden;}
+    .trow-bar{height:100%;border-radius:1px;}
+    .trow-pct{font-size:9px;color:var(--muted);}
+    .highlight-row .trow-label{color:#185FA5;font-weight:500;}
+    .an-insight{background:var(--surface);border-left:2px solid #378ADD;padding:8px 10px;margin-top:8px;font-size:11px;color:var(--muted);border-radius:0;}
+    .an-insight strong{color:var(--text);font-weight:500;}
+
+    /* ===== Sitemap mockup styles ===== */
+    .sm{font-family:var(--mono);font-size:12px;color:var(--text);border:0.5px solid var(--border);}
+    .sm-topbar{background:#e8e3d8;padding:12px 16px;text-align:center;font-size:14px;font-weight:500;border-bottom:0.5px solid var(--border);}
+    .sm-filters{background:#fff;padding:8px 16px;border-bottom:0.5px solid var(--border);display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+    .sm-filter-group{display:flex;flex-direction:column;gap:2px;}
+    .sm-filter-label{font-size:9px;color:var(--muted);letter-spacing:0.05em;}
+    .sm-select{font-size:11px;padding:3px 20px 3px 7px;border:0.5px solid var(--border);border-radius:2px;background:var(--surface);color:var(--text);}
+    .sm-reset{font-size:10px;padding:4px 10px;border:0.5px solid var(--border);background:var(--surface);color:var(--muted);border-radius:2px;cursor:default;}
+    .sm-body{display:grid;grid-template-columns:140px 1fr;}
+    .sm-sidebar{border-right:0.5px solid var(--border);background:var(--surface);}
+    .sm-sidebar-hd{font-size:10px;font-weight:500;padding:8px 12px;letter-spacing:0.05em;color:var(--muted);border-bottom:0.5px solid var(--border);}
+    .sm-kw{font-size:11px;padding:7px 12px;border-bottom:0.5px solid var(--border);cursor:default;color:var(--muted);}
+    .sm-kw.active{background:#2a2a28;color:#fff;font-weight:500;}
+    .sm-main{background:#fff;}
+    .sm-table-hd{display:grid;grid-template-columns:80px 70px 1fr 72px 52px 20px;padding:6px 12px;border-bottom:0.5px solid #ccc9c0;background:var(--surface);font-size:10px;color:var(--muted);font-weight:500;gap:8px;}
+    .sm-row{display:grid;grid-template-columns:80px 70px 1fr 72px 52px 20px;padding:7px 12px;border-bottom:0.5px solid var(--border);font-size:11px;align-items:center;gap:8px;cursor:default;}
+    .sm-row:hover{background:var(--surface);}
+    .sm-row:last-child{border-bottom:none;}
+    .sm-wb-name{color:#185FA5;font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+    .heat-bar{height:14px;border-radius:1px;}
+    .sm-tag{font-size:9px;padding:1px 5px;border-radius:2px;background:var(--surface);color:var(--muted);}
+    .sm-hot-hd{font-size:10px;font-weight:500;padding:8px 12px 4px;letter-spacing:0.05em;color:var(--muted);border-bottom:0.5px solid var(--border);}
+    .sm-hot-row{display:flex;align-items:center;gap:8px;padding:5px 12px;border-bottom:0.5px solid var(--border);font-size:10px;}
+    .sm-hot-name{flex:1;color:#185FA5;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+    .sm-hot-views{color:var(--muted);width:28px;text-align:right;}
+
+    @media(max-width:640px){
+      .db-grid{grid-template-columns:1fr 1fr;}
+      .db-card.span2{grid-column:span 2;}
+      .an-grid{grid-template-columns:1fr;}
+      .sm-body{grid-template-columns:1fr;}
+      .sm-sidebar{display:none;}
+      .impact-bar{flex-direction:column;}
+      .impact-item{border-right:none;border-bottom:1px solid var(--border);}
+      .impact-item:last-child{border-bottom:none;}
+    }
+  </style>
 </head>
 <body>
   <nav>
     <a href="../index.html" class="logo">Yuhuan Yu</a>
     <a href="../projects.html" class="nav-back">← All Projects</a>
   </nav>
+
   <article class="article">
     <div class="article-meta">Data Engineering <span>·</span> Bank SinoPac <span>·</span> 2023–2025</div>
-    <h1>BI Infrastructure — Data Catalog & 300-Dimension Dashboard</h1>
-    <p class="article-sub">300+ dashboards, one Tableau Server, and no one could find anything.</p>
+    <h1>BI Infrastructure &mdash; Data Catalog &amp; 300-Dimension Dashboard</h1>
+    <p class="article-sub">300+ dashboards, one Tableau Server, no governance, and no one could find anything.</p>
 
     <div class="impact-bar">
       <div class="impact-item"><div class="impact-num">50%</div><div class="impact-label">Faster Search</div></div>
@@ -64,31 +175,239 @@
       <div class="impact-item"><div class="impact-num">300+</div><div class="impact-label">Dashboard Dimensions</div></div>
     </div>
 
-    <div class="hero-img"><div class="placeholder">Dashboard Screenshot</div></div>
-
     <div class="article-body">
       <h2>The Problem</h2>
-      <p>Bank SinoPac's analytics team had grown to over <strong>100 analysts </strong> across departments — but the Tableau Server that housed all their reports had no governance. Reports were named inconsistently, ownership was unclear, and finding the right dashboard could take longer than building a new one. Duplicate reports proliferated. Institutional knowledge lived in people's heads.</p>
+      <p>Bank SinoPac's analytics team had no governance on Tableau Server. Finding the right report often took longer than building a new one — knowledge lived in people's heads, not in a system.</p>
+      <ul style="margin:0 0 20px 18px;color:var(--muted);font-size:14px;line-height:2;">
+        <li><strong>20+ analysts</strong> across departments, no shared catalog</li>
+        <li><strong>300+ reports</strong> on Tableau Server with no naming convention or ownership tracking</li>
+        <li>Reports inconsistently named, ownership unclear</li>
+        <li>Duplicate dashboards proliferating across teams</li>
+      </ul>
 
-      <h2>Data Catalog & Sitemap Tool</h2>
-      <p>I took on the role of <strong>Tableau Server administrator and BI consultant</strong>, and the first priority was discoverability. I built an automated sitemap tool that crawled the server, extracted metadata, and generated a structured catalog — organized by business domain, owner, and update frequency.</p>
-      <p>The result: report search time dropped by <strong>50%</strong>, and monthly active usage of the Server climbed to <strong>75%+</strong> of the analyst org. People could finally find what they needed without asking a colleague.</p>
+      <h2>Part 1 &mdash; 300-Dimension Customer Profile Dashboard</h2>
+      <p>A full-bank profiling dashboard built for three distinct use cases — all without filing an analyst request.</p>
+      <ul style="margin:0 0 20px 18px;color:var(--muted);font-size:14px;line-height:2;">
+        <li><strong>Segment profiling</strong> — quickly surface the demographic and behavioral fingerprint of any customer group</li>
+        <li><strong>Latent value discovery</strong> — identify high-potential customers not yet engaged on key products</li>
+        <li><strong>Exploratory analysis</strong> — investigate specific transaction patterns on the fly</li>
+      </ul>
+      <p>Key design decisions that made it work:</p>
+      <ul style="margin:0 0 20px 18px;color:var(--muted);font-size:14px;line-height:2;">
+        <li><strong>300+ filter dimensions</strong> hidden in a hamburger menu — demographics, products, transactions, channels, credit history</li>
+        <li><strong>Parameter-driven comparison</strong> — every selection auto-compares against the unselected base, so every number reads as a direct delta</li>
+        <li><strong>Drill-down KPIs</strong> — Wealth AP expands into ETF / US equities / bonds / structured products; no new view needed</li>
+      </ul>
+    </div>
 
-      <div class="inline-img"><div class="placeholder">Sitemap / Catalog UI<br>coming soon</div></div>
+    <div class="mockup-wrap">
+      <div class="mockup-label">Customer Profile Dashboard &mdash; UI mockup <span class="note">All figures are illustrative</span></div>
+      <div class="mockup-inner">
+        <div class="db">
+          <div class="db-header">
+            <div><div class="db-title">Customer Profile Dashboard</div><div class="db-sub">Last updated: Feb 2025 &nbsp;·&nbsp; All product lines</div></div>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div class="db-menu"><span class="active">All</span><span>Digital</span><span>Payroll</span><span>Wealth</span></div>
+              <div class="hamburger">&#9776;</div>
+            </div>
+          </div>
+          <div class="kpi-bar">
+            <div class="kpi-item"><div class="kpi-label">Total customers</div><div class="kpi-val">4,906,050</div></div>
+            <div class="kpi-item"><div class="kpi-label">Avg. age</div><div class="kpi-val">47.1</div></div>
+            <div class="kpi-item"><div class="kpi-label">Avg. AP count</div><div class="kpi-val">1.75</div></div>
+            <div class="kpi-item"><div class="kpi-label">6M branch visits</div><div class="kpi-val">383,723</div></div>
+            <div class="kpi-item"><div class="kpi-label">Digital adoption</div><div class="kpi-val">5.01%</div></div>
+          </div>
+          <div class="filter-bar">
+            <span style="font-size:10px;color:var(--muted);">Active filters:</span>
+            <span class="filter-tag">Saving &#10003;</span><span class="filter-tag">Credit card &#10003;</span><span class="filter-tag">Investment &#10003;</span><span class="filter-tag">Insurance &#10003;</span>
+            <span class="filter-tag" style="color:#185FA5;border-color:#85B7EB;">+ 295 more dimensions &#9776;</span>
+          </div>
+          <div class="db-grid">
+            <div class="db-card">
+              <div class="card-title">Demographics</div>
+              <div class="annotation">&#8680; Parameter: vs full base</div>
+              <div class="bfly-legend"><span><span class="bfly-dot" style="background:#85B7EB;"></span>Male 48%</span><span><span class="bfly-dot" style="background:#F0997B;"></span>Female 52%</span></div>
+              <div class="bfly-row"><div class="bfly-label">Under 29</div><div class="bfly-left"><div class="bfly-bar-l" style="width:22px;"></div></div><div class="bfly-right"><div class="bfly-bar-r" style="width:14px;"></div></div></div>
+              <div class="bfly-row"><div class="bfly-label">30–39</div><div class="bfly-left"><div class="bfly-bar-l" style="width:36px;"></div></div><div class="bfly-right"><div class="bfly-bar-r" style="width:38px;"></div></div></div>
+              <div class="bfly-row"><div class="bfly-label">40–49</div><div class="bfly-left"><div class="bfly-bar-l" style="width:52px;"></div></div><div class="bfly-right"><div class="bfly-bar-r" style="width:56px;"></div></div></div>
+              <div class="bfly-row"><div class="bfly-label">50–59</div><div class="bfly-left"><div class="bfly-bar-l" style="width:58px;"></div></div><div class="bfly-right"><div class="bfly-bar-r" style="width:60px;"></div></div></div>
+              <div class="bfly-row"><div class="bfly-label">60–69</div><div class="bfly-left"><div class="bfly-bar-l" style="width:44px;"></div></div><div class="bfly-right"><div class="bfly-bar-r" style="width:46px;"></div></div></div>
+              <div class="bfly-row"><div class="bfly-label">70+</div><div class="bfly-left"><div class="bfly-bar-l" style="width:28px;"></div></div><div class="bfly-right"><div class="bfly-bar-r" style="width:32px;"></div></div></div>
+            </div>
+            <div class="db-card">
+              <div class="card-title">Marital status</div>
+              <div class="hbar-row"><div class="hbar-label">Married</div><div class="hbar-track"><div class="hbar-fill blue" style="width:60%;"></div></div><div class="hbar-val">20.2%</div></div>
+              <div class="hbar-row"><div class="hbar-label">Single</div><div class="hbar-track"><div class="hbar-fill blue" style="width:46%;"></div></div><div class="hbar-val">18.2%</div></div>
+              <div class="hbar-row"><div class="hbar-label">Registered</div><div class="hbar-track"><div class="hbar-fill blue" style="width:34%;"></div></div><div class="hbar-val">11.9%</div></div>
+              <div class="hbar-row"><div class="hbar-label">Divorced</div><div class="hbar-track"><div class="hbar-fill blue" style="width:12%;"></div></div><div class="hbar-val">4.4%</div></div>
+              <div style="margin-top:10px;" class="card-title">Occupation</div>
+              <div class="hbar-row"><div class="hbar-label">Business</div><div class="hbar-track"><div class="hbar-fill" style="width:70%;"></div></div><div class="hbar-val">26.7%</div></div>
+              <div class="hbar-row"><div class="hbar-label">Service</div><div class="hbar-track"><div class="hbar-fill" style="width:30%;"></div></div><div class="hbar-val">11.1%</div></div>
+              <div class="hbar-row"><div class="hbar-label">Finance</div><div class="hbar-track"><div class="hbar-fill" style="width:26%;"></div></div><div class="hbar-val">10.2%</div></div>
+            </div>
+            <div class="db-card">
+              <div class="card-title">Region</div>
+              <div class="hbar-row"><div class="hbar-label">Taipei</div><div class="hbar-track"><div class="hbar-fill teal" style="width:82%;"></div></div><div class="hbar-val">26.2%</div></div>
+              <div class="hbar-row"><div class="hbar-label">New Taipei</div><div class="hbar-track"><div class="hbar-fill teal" style="width:48%;"></div></div><div class="hbar-val">15.5%</div></div>
+              <div class="hbar-row"><div class="hbar-label">Taichung</div><div class="hbar-track"><div class="hbar-fill teal" style="width:25%;"></div></div><div class="hbar-val">8.3%</div></div>
+              <div class="hbar-row"><div class="hbar-label">Taoyuan</div><div class="hbar-track"><div class="hbar-fill teal" style="width:22%;"></div></div><div class="hbar-val">6.9%</div></div>
+              <div class="hbar-row"><div class="hbar-label">Kaohsiung</div><div class="hbar-track"><div class="hbar-fill teal" style="width:19%;"></div></div><div class="hbar-val">5.4%</div></div>
+            </div>
+            <div class="db-card">
+              <div class="card-title">AUM distribution</div>
+              <div class="hbar-row"><div class="hbar-label" style="width:52px;">&lt;10K</div><div class="hbar-track"><div class="hbar-fill blue" style="width:18%;"></div></div><div class="hbar-val">4.2%</div></div>
+              <div class="hbar-row"><div class="hbar-label" style="width:52px;">10–50K</div><div class="hbar-track"><div class="hbar-fill blue" style="width:34%;"></div></div><div class="hbar-val">8.7%</div></div>
+              <div class="hbar-row"><div class="hbar-label" style="width:52px;">50–100K</div><div class="hbar-track"><div class="hbar-fill blue" style="width:58%;"></div></div><div class="hbar-val">14.3%</div></div>
+              <div class="hbar-row"><div class="hbar-label" style="width:52px;">100–300K</div><div class="hbar-track"><div class="hbar-fill" style="width:82%;background:#378ADD;"></div></div><div class="hbar-val">31.2%</div></div>
+              <div class="hbar-row"><div class="hbar-label" style="width:52px;">300K–1M</div><div class="hbar-track"><div class="hbar-fill blue" style="width:48%;"></div></div><div class="hbar-val">24.8%</div></div>
+              <div class="hbar-row"><div class="hbar-label" style="width:52px;">&gt;1M</div><div class="hbar-track"><div class="hbar-fill blue" style="width:26%;"></div></div><div class="hbar-val">16.8%</div></div>
+            </div>
+            <div class="db-card span2">
+              <div class="card-title">AP drill-down &mdash; product holdings</div>
+              <div class="annotation">&#8681; Click metric to expand sub-categories</div>
+              <div class="drill-row"><div class="drill-label">Saving AP</div><div class="drill-bar"><div class="drill-fill" style="width:100%;"></div></div><div class="drill-val">5,113</div><div class="drill-sub"><span class="chip">TWD</span><span class="chip">FCY</span><span class="chip">TD</span></div></div>
+              <div class="drill-row"><div class="drill-label">Wealth AP</div><div class="drill-bar"><div class="drill-fill" style="width:64%;background:#1D9E75;"></div></div><div class="drill-val">3,289</div><div class="drill-sub"><span class="chip">ETF</span><span class="chip">US stocks</span><span class="chip">Bonds</span><span class="chip">Structured</span></div></div>
+              <div class="drill-row"><div class="drill-label">Credit card AP</div><div class="drill-bar"><div class="drill-fill" style="width:32%;background:#5DCAA5;"></div></div><div class="drill-val">1,617</div><div class="drill-sub"><span class="chip">DAWAY</span><span class="chip">Cashback</span><span class="chip">Miles</span></div></div>
+              <div class="drill-row"><div class="drill-label">Loan AP</div><div class="drill-bar"><div class="drill-fill" style="width:10%;background:#9FE1CB;"></div></div><div class="drill-val">517</div><div class="drill-sub"><span class="chip">Mortgage</span><span class="chip">Personal</span></div></div>
+              <div class="drill-row"><div class="drill-label">Insurance AP</div><div class="drill-bar"><div class="drill-fill" style="width:7%;background:#9FE1CB;"></div></div><div class="drill-val">370</div><div class="drill-sub"><span class="chip">Life</span><span class="chip">Property</span></div></div>
+            </div>
+            <div class="db-card span2">
+              <div class="card-title">Segment comparison &mdash; selected vs base</div>
+              <div class="annotation">&#8680; Parameter toggle: selected segment vs full bank</div>
+              <div class="segment-row"><div class="seg-label">Standard</div><div class="seg-track"><div class="seg-fill" style="width:72%;"></div></div><div class="seg-val">57.9%</div></div>
+              <div class="segment-row"><div class="seg-label">Priority</div><div class="seg-track"><div class="seg-fill" style="width:34%;background:#7F77DD;"></div></div><div class="seg-val">26.1%</div></div>
+              <div class="segment-row"><div class="seg-label">Wealth</div><div class="seg-track"><div class="seg-fill" style="width:11%;background:#534AB7;"></div></div><div class="seg-val">8.6%</div></div>
+              <div class="segment-row"><div class="seg-label">Private</div><div class="seg-track"><div class="seg-fill" style="width:6%;background:#534AB7;"></div></div><div class="seg-val">7.6%</div></div>
+              <div class="segment-row"><div class="seg-label">VIP</div><div class="seg-track"><div class="seg-fill" style="width:4%;background:#3C3489;"></div></div><div class="seg-val">2.7%</div></div>
+              <div style="margin-top:8px;font-size:10px;color:var(--muted);">Base shown in grey &mdash; delta highlighted in purple</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-      <h2>300-Dimension Customer Profile Dashboard</h2>
-      <p>The second project was more ambitious. Product managers and analysts were spending ~<strong>40 hours every month</strong> manually pulling and cross-referencing customer data to answer questions like: "Who are our high-value customers in this segment, and what products do they hold?"</p>
-      <p>I designed a <strong>customer profile dashboard with 300+ dimensions</strong> — spanning demographics, transaction behavior, product holdings, credit history, and channel preferences. The data model required orchestrating ETL pipelines across multiple source systems and building a dimensional model that could support arbitrary filtering without query rewrites.</p>
-      <p>The dashboard shipped as a self-serve tool for PMs. The 40-hour monthly task became a few clicks.</p>
+    <div class="article-body">
+      <h2>Dashboard in Action &mdash; Downstream Analysis</h2>
+      <p>The dashboard became a launchpad for deeper business analysis. Example below: salary-credit customer segmentation, comparing product breadth and asset depth across tiers.</p>
+      <ul style="margin:0 0 20px 18px;color:var(--muted);font-size:14px;line-height:2;">
+        <li>High-value payroll customers use <strong>more products</strong> but allocate <strong>less depth per product</strong> — cross-sell signal</li>
+        <li>Standard payroll customers concentrate assets in savings — <strong>wealth penetration opportunity</strong></li>
+        <li>Non-payroll customers show <strong>87% fund concentration</strong> among wealth holders — product preference clearly segmented</li>
+        <li>Insights fed directly into product strategy and marketing targeting decisions</li>
+      </ul>
+    </div>
 
+    <div class="mockup-wrap">
+      <div class="mockup-label">Downstream analysis &mdash; Salary-credit customer segmentation <span class="note">All figures are illustrative</span></div>
+      <div class="mockup-inner">
+        <div class="an">
+          <div class="an-grid">
+            <div class="an-panel">
+              <div class="an-panel-hd">Product usage breadth <span>&#8594;</span></div>
+              <div class="col-hd"><span>Product</span><span>Std payroll</span><span>Hi payroll</span><span>Non-payroll</span></div>
+              <div class="trow highlight-row"><div class="trow-label">Saving</div><div class="trow-cell"><div class="trow-bar-wrap"><div class="trow-bar" style="width:97%;background:#378ADD;"></div></div><div class="trow-pct">97.0%</div></div><div class="trow-cell"><div class="trow-bar-wrap"><div class="trow-bar" style="width:97%;background:#378ADD;"></div></div><div class="trow-pct">96.8%</div></div><div class="trow-cell"><div class="trow-bar-wrap"><div class="trow-bar" style="width:66%;background:#B5D4F4;"></div></div><div class="trow-pct">66.4%</div></div></div>
+              <div class="trow"><div class="trow-label">Credit card</div><div class="trow-cell"><div class="trow-bar-wrap"><div class="trow-bar" style="width:12%;background:#EF9F27;"></div></div><div class="trow-pct">11.9%</div></div><div class="trow-cell"><div class="trow-bar-wrap"><div class="trow-bar" style="width:37%;background:#EF9F27;"></div></div><div class="trow-pct">36.6%</div></div><div class="trow-cell"><div class="trow-bar-wrap"><div class="trow-bar" style="width:18%;background:#FAC775;"></div></div><div class="trow-pct">17.7%</div></div></div>
+              <div class="trow"><div class="trow-label">Loan</div><div class="trow-cell"><div class="trow-bar-wrap"><div class="trow-bar" style="width:7%;background:#EF9F27;"></div></div><div class="trow-pct">6.9%</div></div><div class="trow-cell"><div class="trow-bar-wrap"><div class="trow-bar" style="width:46%;background:#EF9F27;"></div></div><div class="trow-pct">45.3%</div></div><div class="trow-cell"><div class="trow-bar-wrap"><div class="trow-bar" style="width:31%;background:#FAC775;"></div></div><div class="trow-pct">30.9%</div></div></div>
+              <div class="trow"><div class="trow-label">Fund</div><div class="trow-cell"><div class="trow-bar-wrap"><div class="trow-bar" style="width:2%;background:#1D9E75;"></div></div><div class="trow-pct">2.1%</div></div><div class="trow-cell"><div class="trow-bar-wrap"><div class="trow-bar" style="width:4%;background:#1D9E75;"></div></div><div class="trow-pct">3.6%</div></div><div class="trow-cell"><div class="trow-bar-wrap"><div class="trow-bar" style="width:3%;background:#9FE1CB;"></div></div><div class="trow-pct">2.5%</div></div></div>
+              <div class="trow highlight-row"><div class="trow-label">Overseas stock</div><div class="trow-cell"><div class="trow-bar-wrap"><div class="trow-bar" style="width:19%;background:#185FA5;"></div></div><div class="trow-pct">18.5%</div></div><div class="trow-cell"><div class="trow-bar-wrap"><div class="trow-bar" style="width:5%;background:#378ADD;"></div></div><div class="trow-pct">5.0%</div></div><div class="trow-cell"><div class="trow-bar-wrap"><div class="trow-bar" style="width:7%;background:#85B7EB;"></div></div><div class="trow-pct">6.8%</div></div></div>
+            </div>
+            <div class="an-panel">
+              <div class="an-panel-hd">Asset allocation depth (avg. per customer)</div>
+              <div style="padding:8px;">
+                <div style="font-size:10px;color:var(--muted);font-weight:500;margin-bottom:6px;">Overall asset allocation</div>
+                <div style="display:flex;gap:6px;align-items:center;padding:2px 0;"><div style="width:70px;font-size:10px;color:var(--muted);">TWD saving</div><div style="flex:1;height:8px;background:var(--surface);border-radius:1px;overflow:hidden;"><div style="width:92%;height:100%;background:#378ADD;border-radius:1px;"></div></div><div style="font-size:9px;color:var(--muted);width:28px;">91.8%</div><div style="font-size:9px;color:var(--muted);width:28px;">86.5%</div><div style="font-size:9px;color:var(--muted);width:28px;">82.2%</div></div>
+                <div style="display:flex;gap:6px;align-items:center;padding:2px 0;"><div style="width:70px;font-size:10px;color:var(--muted);">FCY saving</div><div style="flex:1;height:8px;background:var(--surface);border-radius:1px;overflow:hidden;"><div style="width:4%;height:100%;background:#85B7EB;border-radius:1px;"></div></div><div style="font-size:9px;color:var(--muted);width:28px;">3.6%</div><div style="font-size:9px;color:var(--muted);width:28px;">4.2%</div><div style="font-size:9px;color:var(--muted);width:28px;">5.0%</div></div>
+              </div>
+              <div style="padding:4px 8px 2px;background:var(--surface);border-top:0.5px solid var(--border);font-size:10px;color:var(--muted);font-weight:500;">Wealth products sub-allocation</div>
+              <div style="padding:6px 8px;">
+                <div style="display:flex;gap:6px;align-items:center;padding:2px 0;"><div style="width:70px;font-size:10px;color:var(--muted);">Domestic fund</div><div style="flex:1;height:8px;background:var(--surface);border-radius:1px;overflow:hidden;"><div style="width:35%;height:100%;background:#1D9E75;border-radius:1px;"></div></div><div style="font-size:9px;color:var(--muted);width:28px;">34.6%</div><div style="font-size:9px;color:var(--muted);width:28px;">29.6%</div><div style="font-size:9px;color:#993C1D;width:28px;font-weight:500;">87.3%</div></div>
+                <div style="display:flex;gap:6px;align-items:center;padding:2px 0;"><div style="width:70px;font-size:10px;color:var(--muted);">Offshore fund</div><div style="flex:1;height:8px;background:var(--surface);border-radius:1px;overflow:hidden;"><div style="width:28%;height:100%;background:#5DCAA5;border-radius:1px;"></div></div><div style="font-size:9px;color:var(--muted);width:28px;">27.9%</div><div style="font-size:9px;color:var(--muted);width:28px;">24.6%</div><div style="font-size:9px;color:var(--muted);width:28px;">18.6%</div></div>
+                <div style="display:flex;gap:6px;align-items:center;padding:2px 0;"><div style="width:70px;font-size:10px;color:var(--muted);">Structured</div><div style="flex:1;height:8px;background:var(--surface);border-radius:1px;overflow:hidden;"><div style="width:6%;height:100%;background:#9FE1CB;border-radius:1px;"></div></div><div style="font-size:9px;color:var(--muted);width:28px;">5.6%</div><div style="font-size:9px;color:var(--muted);width:28px;">5.3%</div><div style="font-size:9px;color:var(--muted);width:28px;">4.3%</div></div>
+              </div>
+              <div class="an-insight"><strong>Key finding:</strong> High-value payroll customers show broader product adoption but lower per-product depth — suggesting cross-sell opportunity. Standard payroll customers concentrate assets heavily in savings.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="article-body">
+      <h2>Part 2 &mdash; Tableau Server Data Catalog</h2>
+      <p>An automated sitemap tool that crawled the Server, extracted workbook metadata, and surfaced everything through a filterable catalog — click a workbook name to open it directly.</p>
+      <ul style="margin:0 0 20px 18px;color:var(--muted);font-size:14px;line-height:2;">
+        <li><strong>5 filter dimensions</strong> — segment, platform, product, workbook name, updated month</li>
+        <li><strong>Keyword sidebar</strong> with 10+ common quick-filters for the most frequent search patterns</li>
+        <li><strong>Hot workbooks panel</strong> — top 5 most-viewed reports in the last 30 days, for new analysts to orient fast</li>
+        <li><strong>View count heatmap</strong> — right-edge heat bars surface stale workbooks and governance gaps at a glance</li>
+      </ul>
+      <ul style="margin:0 0 20px 18px;color:var(--muted);font-size:14px;line-height:2;">
+        <li><strong>50% faster</strong> report search time</li>
+        <li><strong>75%+ monthly adoption</strong> across the analyst org</li>
+      </ul>
+    </div>
+
+    <div class="mockup-wrap">
+      <div class="mockup-label">Tableau Server Data Catalog &mdash; Sitemap tool <span class="note">Workbook names anonymised</span></div>
+      <div class="mockup-inner">
+        <div class="sm">
+          <div class="sm-topbar">Tableau Server Workbook Catalog</div>
+          <div class="sm-filters">
+            <button class="sm-reset">Reset filters</button>
+            <button class="sm-reset" style="color:#185FA5;border-color:#85B7EB;">Common keywords</button>
+            <div class="sm-filter-group"><div class="sm-filter-label">Segment</div><select class="sm-select"><option>(ALL)</option></select></div>
+            <div class="sm-filter-group"><div class="sm-filter-label">Platform</div><select class="sm-select"><option>(ALL)</option></select></div>
+            <div class="sm-filter-group"><div class="sm-filter-label">Product / Function</div><select class="sm-select"><option>(ALL)</option></select></div>
+            <div class="sm-filter-group"><div class="sm-filter-label">Workbook name</div><select class="sm-select"><option>(ALL)</option></select></div>
+            <div class="sm-filter-group"><div class="sm-filter-label">Updated month</div><select class="sm-select"><option>(ALL)</option></select></div>
+          </div>
+          <div class="sm-body">
+            <div class="sm-sidebar">
+              <div class="sm-sidebar-hd">Keyword filter</div>
+              <div class="sm-kw active">Customer profile</div>
+              <div class="sm-kw">KPI dashboard</div>
+              <div class="sm-kw">Digital account</div>
+              <div class="sm-kw">Payroll</div>
+              <div class="sm-kw">All</div>
+              <div style="border-top:0.5px solid var(--border);margin-top:8px;">
+                <div class="sm-hot-hd">Trending (30d)</div>
+                <div class="sm-hot-row"><div class="sm-hot-name">OMO Dashboard</div><div class="sm-hot-views">348</div></div>
+                <div class="sm-hot-row"><div class="sm-hot-name">Branch summary</div><div class="sm-hot-views">294</div></div>
+                <div class="sm-hot-row"><div class="sm-hot-name">Digital ad platform</div><div class="sm-hot-views">205</div></div>
+                <div class="sm-hot-row"><div class="sm-hot-name">MMA campaign</div><div class="sm-hot-views">170</div></div>
+                <div class="sm-hot-row"><div class="sm-hot-name">All-customer profile</div><div class="sm-hot-views">133</div></div>
+              </div>
+            </div>
+            <div class="sm-main">
+              <div style="padding:6px 12px;border-bottom:0.5px solid var(--border);font-size:11px;color:var(--muted);">Workbook list &mdash; click workbook name to open in Tableau Server</div>
+              <div class="sm-table-hd"><span>Platform</span><span>Product</span><span>Workbook name</span><span>Views (30d)</span><span>Owner</span><span></span></div>
+              <div class="sm-row"><div><span class="sm-tag">All platform</span></div><div style="font-size:10px;color:var(--muted);">All products</div><div class="sm-wb-name">[Analytics] All customers &mdash; Customer profile dashboard</div><div style="display:flex;align-items:center;gap:6px;"><div class="heat-bar" style="width:42px;background:#E24B4A;opacity:0.7;"></div><span style="font-size:11px;color:var(--muted);">133</span></div><div style="font-size:10px;color:var(--muted);">Y.Y.</div><div>&#8599;</div></div>
+              <div class="sm-row"><div><span class="sm-tag">All platform</span></div><div style="font-size:10px;color:var(--muted);">All products</div><div class="sm-wb-name">[Operations] All customers &mdash; OMO Dashboard</div><div style="display:flex;align-items:center;gap:6px;"><div class="heat-bar" style="width:72px;background:#E24B4A;opacity:0.95;"></div><span style="font-size:11px;color:var(--muted);">348</span></div><div style="font-size:10px;color:var(--muted);">K.K.</div><div>&#8599;</div></div>
+              <div class="sm-row"><div><span class="sm-tag">Mobile app</span></div><div style="font-size:10px;color:var(--muted);">All products</div><div class="sm-wb-name">[Operations] Digital &mdash; Branch weekly summary</div><div style="display:flex;align-items:center;gap:6px;"><div class="heat-bar" style="width:62px;background:#E24B4A;opacity:0.85;"></div><span style="font-size:11px;color:var(--muted);">294</span></div><div style="font-size:10px;color:var(--muted);">Y.Y.</div><div>&#8599;</div></div>
+              <div class="sm-row"><div><span class="sm-tag">All platform</span></div><div style="font-size:10px;color:var(--muted);">All products</div><div class="sm-wb-name">[Analytics] All customers &mdash; External customer profile</div><div style="display:flex;align-items:center;gap:6px;"><div class="heat-bar" style="width:14px;background:#E24B4A;opacity:0.35;"></div><span style="font-size:11px;color:var(--muted);">44</span></div><div style="font-size:10px;color:var(--muted);">H.K.</div><div>&#8599;</div></div>
+              <div class="sm-row"><div><span class="sm-tag">MMA</span></div><div style="font-size:10px;color:var(--muted);">Marketing</div><div class="sm-wb-name">[Campaign] Digital channel &mdash; 2025 travel promotion</div><div style="display:flex;align-items:center;gap:6px;"><div class="heat-bar" style="width:46px;background:#E24B4A;opacity:0.75;"></div><span style="font-size:11px;color:var(--muted);">170</span></div><div style="font-size:10px;color:var(--muted);">Y.Y.</div><div>&#8599;</div></div>
+              <div class="sm-row"><div><span class="sm-tag">All platform</span></div><div style="font-size:10px;color:var(--muted);">Other</div><div class="sm-wb-name">[Analytics] Digital account &mdash; alert customers</div><div style="display:flex;align-items:center;gap:6px;"><div class="heat-bar" style="width:36px;background:#E24B4A;opacity:0.65;"></div><span style="font-size:11px;color:var(--muted);">137</span></div><div style="font-size:10px;color:var(--muted);">H.K.</div><div>&#8599;</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="article-body">
       <h2>What I Learned</h2>
-      <p><em>BI infrastructure work is invisible until it breaks — or until it suddenly works. The highest-leverage thing I did wasn't any single dashboard; it was establishing the governance layer that made all future dashboards easier to build, find, and trust.</em></p>
+      <p><em>BI infrastructure work is invisible until it breaks — or until it suddenly works. The highest-leverage thing I built wasn't any single chart; it was the governance layer that made all future dashboards easier to build, find, and trust.</em></p>
+      <ul style="margin:0 0 20px 18px;color:var(--muted);font-size:14px;line-height:2;font-style:italic;">
+        <li>The parameter comparison design came from watching analysts manually duplicate filters — once you see the pattern, the solution is obvious</li>
+        <li>Making data self-serve reduces analyst queue depth more durably than hiring more analysts</li>
+      </ul>
     </div>
 
     <div class="article-tags">
       <span class="tag">Tableau Server</span><span class="tag">ETL</span><span class="tag">Dimensional Modeling</span>
       <span class="tag">BI Governance</span><span class="tag">SQL</span><span class="tag">Data Catalog</span>
+      <span class="tag">Parameters</span><span class="tag">Drill-down</span>
     </div>
+
     <a href="../projects.html" class="back-link">← Back to all projects</a>
   </article>
 </body>
