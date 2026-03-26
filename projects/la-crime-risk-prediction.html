@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LA Crime Risk Prediction — Yuhuan Yu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #f5f4f0; --surface: #eeecea; --border: #ccc9c0; --text: #1a1a18; --muted: #5e5c56; --mono: 'IBM Plex Mono', monospace; --sans: 'Playfair Display', serif; --dmm: 'DM Mono', monospace; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: var(--mono); font-size: 14px; line-height: 1.75; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; padding: 20px 36px; border-bottom: 1px solid var(--border); background: rgba(245,244,240,0.92); backdrop-filter: blur(12px); display: flex; justify-content: space-between; align-items: center; }
+    nav .logo { font-family: var(--sans); font-weight: 700; font-size: 15px; color: var(--text); text-decoration: none; }
+    .nav-back { font-size: 11px; color: var(--muted); text-decoration: none; letter-spacing: 0.08em; transition: color 0.2s; }
+    .nav-back:hover { color: var(--text); }
+    .article { max-width: 680px; margin: 0 auto; padding: 120px 36px 100px; }
+    .article-meta { font-size: 11px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; font-family: var(--dmm); display: flex; align-items: center; gap: 10px; }
+    .article-meta span { color: var(--border); }
+    h1 { font-family: var(--sans); font-size: clamp(32px, 5vw, 52px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; color: var(--text); margin-bottom: 20px; }
+    .article-sub { font-size: 16px; color: var(--muted); line-height: 1.7; margin-bottom: 36px; font-style: italic; font-family: var(--sans); }
+    .impact-bar { display: flex; border: 1px solid var(--border); margin-bottom: 48px; background: var(--surface); }
+    .impact-item { flex: 1; padding: 18px 20px; border-right: 1px solid var(--border); }
+    .impact-item:last-child { border-right: none; }
+    .impact-num { font-family: var(--sans); font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
+    .impact-label { font-size: 10px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 3px; }
+    .article-body { font-size: 15px; line-height: 1.9; }
+    .article-body h2 { font-family: var(--sans); font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin: 48px 0 16px; }
+    .article-body p { margin-bottom: 20px; }
+    .article-body strong { font-weight: 500; }
+    .article-body em { font-style: italic; color: var(--muted); }
+    .figure { margin: 32px 0; border: 1px solid var(--border); }
+    .figure-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); padding: 8px 14px; border-bottom: 1px solid var(--border); background: var(--surface); font-family: var(--dmm); }
+    .figure img { width: 100%; display: block; }
+    .figure-cap { font-size: 11px; color: var(--muted); padding: 8px 14px; border-top: 1px solid var(--border); font-family: var(--dmm); }
+    .model-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 13px; font-family: var(--dmm); }
+    .model-table th { text-align: left; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); padding: 8px 12px; border-bottom: 1px solid var(--border); font-weight: 400; }
+    .model-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text); }
+    .model-table tr:last-child td { border-bottom: none; }
+    .model-table tr.winner td { background: var(--surface); font-weight: 500; }
+    .model-table tr.winner td:first-child::before { content: '🏆 '; }
+    .pipeline { display: flex; flex-direction: column; gap: 0; margin: 24px 0; border: 1px solid var(--border); }
+    .pipe-step { display: flex; align-items: flex-start; gap: 16px; padding: 14px 16px; border-bottom: 1px solid var(--border); }
+    .pipe-step:last-child { border-bottom: none; }
+    .pipe-num { font-family: var(--dmm); font-size: 10px; color: var(--muted); min-width: 20px; padding-top: 2px; }
+    .pipe-file { font-family: var(--dmm); font-size: 11px; color: var(--text); min-width: 110px; }
+    .pipe-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
+    .article-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); }
+    .tag { font-size: 10px; padding: 4px 10px; border: 1px solid var(--border); color: var(--muted); letter-spacing: 0.05em; }
+    .links-row { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
+    .link-btn { display: inline-flex; align-items: center; gap: 7px; font-size: 11px; color: var(--muted); text-decoration: none; letter-spacing: 0.06em; border: 1px solid var(--border); padding: 8px 14px; transition: all 0.2s; font-family: var(--dmm); }
+    .link-btn:hover { color: var(--text); border-color: var(--text); }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 48px; font-size: 12px; color: var(--muted); text-decoration: none; letter-spacing: 0.06em; transition: color 0.2s; border-top: 1px solid var(--border); padding-top: 32px; width: 100%; }
+    .back-link:hover { color: var(--text); }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EZ5BXQZXBK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-EZ5BXQZXBK");
+  </script>
+</head>
+<body>
+  <nav>
+    <a href="../index.html" class="logo">Yuhuan Yu</a>
+    <a href="../projects.html" class="nav-back">← All Projects</a>
+  </nav>
+
+  <article class="article">
+    <div class="article-meta">ML / Geospatial <span>·</span> USC DSCI 558 <span>·</span> 2024</div>
+    <h1>LA Crime Risk Prediction — Forecasting High-Risk Zones with XGBoost</h1>
+    <p class="article-sub">Where might crime happen next in Los Angeles — and when? An end-to-end ML pipeline that turns 1M+ LAPD incidents into actionable risk forecasts.</p>
+
+    <div class="impact-bar">
+      <div class="impact-item"><div class="impact-num">0.966</div><div class="impact-label">ROC-AUC</div></div>
+      <div class="impact-item"><div class="impact-num">50.7%</div><div class="impact-label">Recall</div></div>
+      <div class="impact-item"><div class="impact-num">1M+</div><div class="impact-label">LAPD Records</div></div>
+      <div class="impact-item"><div class="impact-num">31</div><div class="impact-label">Features</div></div>
+    </div>
+
+    <div class="article-body">
+
+      <h2>The Problem</h2>
+      <p>Los Angeles is safer than only 6% of U.S. cities, with a violent crime rate twice the national average. The question we set out to answer was specific: <strong>given a location and time, what is the probability that a crime will occur?</strong> Not just a retrospective heatmap — an actual predictive model that could support proactive safety planning.</p>
+
+      <h2>Spatial Structure — H3 Hexagonal Grid</h2>
+      <p>Predicting individual incidents is intractable. Instead, each crime record is mapped to a <strong>H3 resolution-9 hexagon</strong> (~0.1 km² per cell) and aggregated by month and 3-hour time block. This produces a structured panel of 87,000+ grid-cell-hour observations — small enough to model, granular enough to be useful.</p>
+
+      <div class="figure">
+        <div class="figure-label">H3 Crime Hotspot Map — Los Angeles (2022–2023)</div>
+        <img src="../ml-projects/la-crime-risk-prediction/docs/images/h3_hotspot_map.png" alt="H3 hexagonal crime hotspot map of Los Angeles">
+        <div class="figure-cap">7,376 hexagons · resolution 9 · max 981 crimes per cell · crime concentrates around Downtown LA, Hollywood, and South LA</div>
+      </div>
+
+      <p>The map immediately confirms that crime is not uniformly distributed — it clusters in persistent hotspots driven by socioeconomic and environmental conditions. These spatial patterns became the foundation of the predictive features.</p>
+
+      <h2>Data Engineering</h2>
+      <p>The pipeline integrates four data sources, none of which arrive in a compatible format:</p>
+
+      <div class="pipeline">
+        <div class="pipe-step"><span class="pipe-num">01</span><span class="pipe-file">LAPD Crime Data</span><span class="pipe-desc">1,004,991 incidents · 28 columns · Socrata API · custom military-time parser (HHMM → HH:MM)</span></div>
+        <div class="pipe-step"><span class="pipe-num">02</span><span class="pipe-file">ACS Demographics</span><span class="pipe-desc">Census block group data via BigQuery · joined via two-stage geocoding: Census Geocoder API → OpenStreetMap fallback · 92% coverage (924k rows)</span></div>
+        <div class="pipe-step"><span class="pipe-num">03</span><span class="pipe-file">NOAA Weather</span><span class="pipe-desc">Daily TAVG / TMAX / TMIN / PRCP for LA · merged by date · log-transformed COVID case counts to normalize scale</span></div>
+        <div class="pipe-step"><span class="pipe-num">04</span><span class="pipe-file">Temporal Features</span><span class="pipe-desc">1-month and 3-month lagged crime counts per grid · holiday indicator · season · time-of-day category</span></div>
+      </div>
+
+      <h2>Modeling</h2>
+      <p>The target variable is binary: does a grid-cell-hour fall in the top 20% of crime counts for its time period? This quantile-based labeling produces a ~2% positive rate — severe class imbalance that shaped every modeling decision.</p>
+
+      <table class="model-table">
+        <thead>
+          <tr><th>Model</th><th>ROC-AUC</th><th>PR-AUC</th><th>F1</th><th>Recall</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Logistic Regression</td><td>0.970</td><td>0.261</td><td>0.307</td><td>0.309</td></tr>
+          <tr><td>Random Forest</td><td>0.955</td><td>0.411</td><td>0.420</td><td>0.426</td></tr>
+          <tr class="winner"><td>XGBoost</td><td>0.966</td><td>0.428</td><td>0.417</td><td>0.507</td></tr>
+        </tbody>
+      </table>
+
+      <p>XGBoost was selected for its <strong>50.7% recall</strong> — correctly flagging half of all actual high-risk zones — and highest PR-AUC under class imbalance. Hyperparameters were tuned via GridSearchCV with <strong>TimeSeriesCV</strong> (5 splits) to prevent data leakage; random k-fold would leak future crime counts into training folds.</p>
+
+      <h2>What Actually Drives Risk</h2>
+      <p>SHAP analysis reveals a clear hierarchy: <strong>time of day dominates everything else</strong>. `time_block` has a mean absolute impact of +2.42 — nearly double the next feature. Risk escalates sharply after 3 PM and peaks between 6 PM and midnight.</p>
+
+      <div class="figure">
+        <div class="figure-label">SHAP Mean Absolute Impact — XGBoost</div>
+        <img src="../ml-projects/la-crime-risk-prediction/docs/images/shap_summary_bar.png" alt="SHAP mean absolute impact bar chart">
+        <div class="figure-cap">time_block (+2.42) and grid_max (+1.39) are the two dominant features — temporal context and historical crime density together explain most of the model's predictions</div>
+      </div>
+
+      <p>The second tier is historical crime density: `grid_max`, `grid_std`, and `hist_mean` collectively reflect the <em>spatial stability of crime hotspots</em> — areas that were dangerous before tend to remain dangerous. This aligns with environmental criminology theory: the physical and social conditions that create crime opportunity persist over time.</p>
+
+      <div class="figure">
+        <div class="figure-label">SHAP Waterfall — Single High-Risk Prediction (p = 0.979)</div>
+        <img src="../ml-projects/la-crime-risk-prediction/docs/images/shap_waterfall_example.png" alt="SHAP waterfall plot for a high-risk prediction">
+        <div class="figure-cap">grid_mean (+1.44), hist_mean (+0.80), grid_std (+0.69) — the model is not a black box; every prediction can be traced to its drivers</div>
+      </div>
+
+      <p>The beeswarm confirms the directionality: high `time_block` values (late night) push predictions strongly negative for <em>low-risk classifications</em>, while high `grid_mean` values consistently drive risk up regardless of time.</p>
+
+      <div class="figure">
+        <div class="figure-label">SHAP Beeswarm — Feature Value vs Impact</div>
+        <img src="../ml-projects/la-crime-risk-prediction/docs/images/shap_beeswarm.png" alt="SHAP beeswarm plot">
+        <div class="figure-cap">red = high feature value · blue = low · each dot is one prediction — the spread reveals non-linear relationships invisible to simpler models</div>
+      </div>
+
+      <h2>What Made It Hard</h2>
+      <p><em>The original panel structure — all grid × hour combinations — generated 90 million rows, exceeding memory limits. Reducing this to 87,000 records required careful aggregation choices that preserved predictive signal without leaking future information. Getting the cross-validation right under temporal dependency was the most technically demanding part: bootstrapping and standard k-fold both introduce subtle leakage that inflates performance estimates by 3–5%.</em></p>
+
+    </div>
+
+    <div class="links-row">
+      <a href="https://github.com/Randolphyu/ml-projects/tree/main/la-crime-risk-prediction" class="link-btn" target="_blank">↗ GitHub Repo</a>
+    </div>
+
+    <div class="article-tags">
+      <span class="tag">XGBoost</span><span class="tag">SHAP</span><span class="tag">H3</span>
+      <span class="tag">Geospatial</span><span class="tag">TimeSeriesCV</span><span class="tag">Boruta</span>
+      <span class="tag">BigQuery</span><span class="tag">Python</span><span class="tag">Folium</span>
+      <span class="tag">Feature Engineering</span><span class="tag">Class Imbalance</span>
+    </div>
+
+    <a href="../projects.html" class="back-link">← Back to all projects</a>
+  </article>
+</body>
+</html>

@@ -234,7 +234,7 @@
 
       <button class="sidebar-btn" onclick="switchPanel('analytics', this)">
         <span class="sb-title">Analytics & ML</span>
-        <span class="sb-count">2 projects</span>
+        <span class="sb-count">3 projects</span>
       </button>
     </aside>
 
@@ -461,6 +461,42 @@
     <div style="flex:1;background:#CECBF6;height:40%;border-radius:1px 1px 0 0;"></div>
   </div>
   <div style="font-size:6px;color:#5e5c56;margin-top:2px;">500K+ users · chi-square tested</div>
+</div>
+            </div>
+          </a>
+
+          <a href="projects/la-crime-risk-prediction.html" class="card">
+            <div>
+              <div class="card-meta">
+                USC DSCI 558 <span class="dot"></span> 2024 <span class="dot"></span> ML / Geospatial
+              </div>
+              <div class="card-title">LA Crime Risk Prediction — Forecasting High-Risk Zones with XGBoost</div>
+              <div class="card-excerpt">
+                Where might crime happen next in Los Angeles — and when? An end-to-end ML pipeline ingesting 1M+ LAPD incidents across H3 hexagonal grids, enriched with ACS demographics, weather, and COVID data. XGBoost trained on 31 features achieves 0.966 ROC-AUC and 50.7% recall, with SHAP analysis revealing time-of-day and historical crime density as dominant predictors...
+              </div>
+              <span class="card-more">Read more</span>
+              <div class="card-tags">
+                <span class="tag">XGBoost</span>
+                <span class="tag">SHAP</span>
+                <span class="tag">H3 Grids</span>
+                <span class="tag">Geospatial</span>
+                <span class="tag">Python</span>
+                <span class="tag">BigQuery</span>
+              </div>
+            </div>
+            <div class="card-thumb">
+              <div style="background:#fff;height:100%;display:flex;flex-direction:column;padding:7px 8px;gap:3px;font-family:monospace;">
+  <div style="font-size:6px;color:#5e5c56;letter-spacing:0.07em;text-transform:uppercase;margin-bottom:2px;">SHAP mean |impact| — XGBoost</div>
+  <div style="display:flex;align-items:center;gap:4px;"><div style="font-size:6px;color:#5e5c56;width:44px;text-align:right;flex-shrink:0;">time_block</div><div style="flex:1;height:7px;background:#eeecea;border-radius:1px;overflow:hidden;"><div style="width:96%;height:100%;background:#D85A30;border-radius:1px;"></div></div><div style="font-size:6px;color:#993C1D;width:20px;font-weight:500;">2.42</div></div>
+  <div style="display:flex;align-items:center;gap:4px;"><div style="font-size:6px;color:#5e5c56;width:44px;text-align:right;flex-shrink:0;">grid_max</div><div style="flex:1;height:7px;background:#eeecea;border-radius:1px;overflow:hidden;"><div style="width:54%;height:100%;background:#D85A30;border-radius:1px;"></div></div><div style="font-size:6px;color:#993C1D;width:20px;font-weight:500;">1.39</div></div>
+  <div style="display:flex;align-items:center;gap:4px;"><div style="font-size:6px;color:#5e5c56;width:44px;text-align:right;flex-shrink:0;">grid_std</div><div style="flex:1;height:7px;background:#eeecea;border-radius:1px;overflow:hidden;"><div style="width:28%;height:100%;background:#F0997B;border-radius:1px;"></div></div><div style="font-size:6px;color:#993C1D;width:20px;font-weight:500;">0.71</div></div>
+  <div style="display:flex;align-items:center;gap:4px;"><div style="font-size:6px;color:#5e5c56;width:44px;text-align:right;flex-shrink:0;">hist_mean</div><div style="flex:1;height:7px;background:#eeecea;border-radius:1px;overflow:hidden;"><div style="width:22%;height:100%;background:#F5C4B3;border-radius:1px;"></div></div><div style="font-size:6px;color:#993C1D;width:20px;font-weight:500;">0.56</div></div>
+  <div style="height:1px;background:#eeecea;margin:2px 0;"></div>
+  <div style="display:flex;gap:3px;">
+    <div style="background:#eeecea;border:0.5px solid #ccc9c0;border-radius:2px;padding:3px 5px;flex:1;text-align:center;"><div style="font-size:9px;font-weight:500;color:#1a1a18;">0.966</div><div style="font-size:5px;color:#5e5c56;">ROC-AUC</div></div>
+    <div style="background:#eeecea;border:0.5px solid #ccc9c0;border-radius:2px;padding:3px 5px;flex:1;text-align:center;"><div style="font-size:9px;font-weight:500;color:#1a1a18;">0.428</div><div style="font-size:5px;color:#5e5c56;">PR-AUC</div></div>
+    <div style="background:#eeecea;border:0.5px solid #ccc9c0;border-radius:2px;padding:3px 5px;flex:1;text-align:center;"><div style="font-size:9px;font-weight:500;color:#1D9E75;">50.7%</div><div style="font-size:5px;color:#5e5c56;">Recall</div></div>
+  </div>
 </div>
             </div>
           </a>
