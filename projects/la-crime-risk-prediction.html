@@ -90,7 +90,7 @@
 
       <div class="figure">
         <div class="figure-label">H3 Crime Hotspot Map — Los Angeles (2022–2023)</div>
-        <img src="../ml-projects/la-crime-risk-prediction/docs/images/h3_hotspot_map.png" alt="H3 hexagonal crime hotspot map of Los Angeles">
+        <img src="assets/images/la-crime/h3_hotspot_map.png" alt="H3 hexagonal crime hotspot map of Los Angeles">
         <div class="figure-cap">7,376 hexagons · resolution 9 · max 981 crimes per cell · crime concentrates around Downtown LA, Hollywood, and South LA</div>
       </div>
 
@@ -127,7 +127,7 @@
 
       <div class="figure">
         <div class="figure-label">SHAP Mean Absolute Impact — XGBoost</div>
-        <img src="../ml-projects/la-crime-risk-prediction/docs/images/shap_summary_bar.png" alt="SHAP mean absolute impact bar chart">
+        <img src="assets/images/la-crime/shap_summary_bar.png" alt="SHAP mean absolute impact bar chart">
         <div class="figure-cap">time_block (+2.42) and grid_max (+1.39) are the two dominant features — temporal context and historical crime density together explain most of the model's predictions</div>
       </div>
 
@@ -135,7 +135,7 @@
 
       <div class="figure">
         <div class="figure-label">SHAP Waterfall — Single High-Risk Prediction (p = 0.979)</div>
-        <img src="../ml-projects/la-crime-risk-prediction/docs/images/shap_waterfall_example.png" alt="SHAP waterfall plot for a high-risk prediction">
+        <img src="assets/images/la-crime/shap_waterfall_example.png" alt="SHAP waterfall plot for a high-risk prediction">
         <div class="figure-cap">grid_mean (+1.44), hist_mean (+0.80), grid_std (+0.69) — the model is not a black box; every prediction can be traced to its drivers</div>
       </div>
 
@@ -143,7 +143,7 @@
 
       <div class="figure">
         <div class="figure-label">SHAP Beeswarm — Feature Value vs Impact</div>
-        <img src="../ml-projects/la-crime-risk-prediction/docs/images/shap_beeswarm.png" alt="SHAP beeswarm plot">
+        <img src="assets/images/la-crime/shap_beeswarm.png" alt="SHAP beeswarm plot">
         <div class="figure-cap">red = high feature value · blue = low · each dot is one prediction — the spread reveals non-linear relationships invisible to simpler models</div>
       </div>
 
